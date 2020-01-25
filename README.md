@@ -1,15 +1,17 @@
-#Info
+Info
+======
 lmao what
 
-#**Commands**
-
+**Commands**
+======
 * .ping
 * .joined
 * .kick
 * .ban
 * .addMember
 
-#**Todo**
+**Todo**
+======
 - [ ] Make commands allowed to specific roles.
 - [ ] Add automatic discord updates
 - [ ] n/a
