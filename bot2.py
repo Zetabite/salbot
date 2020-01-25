@@ -117,3 +117,11 @@ async def test(ctx):
     em.description = "test message"
     em.set_footer(text=f"Requested by: {str(ctx.author)}", icon_url=ctx.author.avatar_url)
     await ctx.send(embed=em)
+    
+try: 
+
+    client.run( get_secret() )
+
+except discord.errors.LoginFailure as error:
+
+    print( f"Error logging in! Error: {error}" )
