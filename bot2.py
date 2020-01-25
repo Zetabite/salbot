@@ -64,8 +64,8 @@ async def ding(ctx):
 
 
 @bot.command()
-async def pepe(ctx):                                                           #this function
-    file_path = 'path to picture folder'
+async def meme(ctx):                                                           #this function
+    file_path = 'memes'
     picture_names = os.listdir(file_path)
     await ctx.send(file=discord.File(file_path + random.choice(picture_names)))
 
