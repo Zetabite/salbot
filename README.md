@@ -5,13 +5,14 @@ lmao what
 **Commands**
 ------
 * .ping
+* .clean
+* .stop
+* .say
 * .joined
-* .kick
-* .ban
-* .addMember
+* .test
 
 **Todo**
 ------
 - [ ] Make commands allowed to specific roles.
 - [ ] Add automatic discord updates
-- [ ] n/a
+- [x] Figure out embeding
