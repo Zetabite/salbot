@@ -119,7 +119,7 @@ async def test(ctx):
     
 try: 
 
-    client.run( get_secret() )
+    bot.run( get_secret() )
 
 except discord.errors.LoginFailure as error:
 
