@@ -67,4 +67,4 @@ async def ban(ctx, member : discord.Member = None, *, reason=None):
     else:
         await ctx.send('> Please specify a member')
 
-client.run('NDAwMTA1OTA3MjI2MTQ4ODc0.XiuztA.kj5fPVXJiwRoN5T5M9QtjeQb2BI')
+client.run('---no-bad---')
