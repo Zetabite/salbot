@@ -8,7 +8,6 @@ from sys import exit as exit_script
 
 bot_secret_file = "bot_secret.txt"
 
-bot = discord.Client()
 bot = commands.Bot(command_prefix = '.')
 
 def get_secret():
