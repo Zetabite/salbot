@@ -10,9 +10,14 @@ lmao what
 * .say
 * .joined
 * .test
+* .addMember
+* .removeMember
+* .kick
+* .ban
 
 **Todo**
 ------
-- [ ] Make commands allowed to specific roles.
+- [x] Make commands allowed to specific roles.
 - [ ] Add automatic discord updates
 - [x] Figure out embeding
+- [x] Add/Remove role command for new members.
