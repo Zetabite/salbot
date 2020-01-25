@@ -1,6 +1,7 @@
 import os
 import asyncio
 import discord
+import random
 from discord.ext import commands
 from discord.ext.commands.cooldowns import BucketType
 
@@ -65,7 +66,7 @@ async def ding(ctx):
 
 @bot.command()
 async def meme(ctx):                                                           #this function
-    file_path = 'memes'
+    file_path = 'memes/'
     picture_names = os.listdir(file_path)
     await ctx.send(file=discord.File(file_path + random.choice(picture_names)))
 
