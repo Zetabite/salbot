@@ -121,7 +121,26 @@ async def test(ctx):
     em.description = "test message"
     em.set_footer(text=f"Requested by: {str(ctx.author)}", icon_url=ctx.author.avatar_url)
     await ctx.send(embed=em)
-    
+ 
+@client.command()
+@commands.has_any_role("Dev","Private")
+async def addMember(ctx, member : discord.Member = None, *,reason=None):
+    await ctx.message.delete()
+    role = get(member.guild.roles, name="Member")
+    await member.add_roles(role)
+
+@client.command()
+@commands.has_any_role("Dev","Private")
+async def removeMember(ctx, member : discord.Member = None, *, reason=None):
+    await ctx.message.delete()
+    role = get(member.guild.roles, name="Member")
+    await member.remove_roles(role)
+    channel = await ctx.author.create_dm()
+    await channel.send(f'Removed role of Member from {member.name}')
+
+
+
+
 # @bot.event
 # async def on_raw_message_delete(raw_message):
 #     """Deleted Messages log."""
