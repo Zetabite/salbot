@@ -14,6 +14,8 @@ lmao what
 * .removeMember
 * .kick
 * .ban
+* .test
+* .fuck
 
 **Todo**
 ------
