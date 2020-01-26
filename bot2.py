@@ -70,6 +70,10 @@ async def meme(ctx):                                                           #
     picture_names = os.listdir(file_path)
     await ctx.send(file=discord.File(file_path + random.choice(picture_names)))
 
+@bot.command()
+async def clean(ctx, amount=5):
+    await ctx.channel.purge(limit=amount)
+    await ctx.send('> Chat Cleaned!')
 
 @bot.command()
 async def be(ctx):
@@ -110,30 +114,6 @@ async def say(ctx, *, message: commands.clean_content()):
     finally:
         await ctx.send(message)    
 
-      
-    
-    
-    
-    
-@client.command()
-@commands.has_any_role("Dev","Private")
-async def addMember(ctx, member : discord.Member = None, *,reason=None):
-    await ctx.message.delete()
-    role = get(member.guild.roles, name="Member")
-    await member.add_roles(role)
-
-@client.command()
-@commands.has_any_role("Dev","Private")
-async def removeMember(ctx, member : discord.Member = None, *, reason=None):
-    await ctx.message.delete()
-    role = get(member.guild.roles, name="Member")
-    await member.remove_roles(role)
-    channel = await ctx.author.create_dm()
-    await channel.send(f'Removed role of Member from {member.name}')
-
-
-    
-    
 @bot.command()
 async def test(ctx):
     """Allow my bot to join the hood. YOUR hood."""
@@ -142,6 +122,35 @@ async def test(ctx):
     em.set_footer(text=f"Requested by: {str(ctx.author)}", icon_url=ctx.author.avatar_url)
     await ctx.send(embed=em)
     
+# @bot.event
+# async def on_raw_message_delete(raw_message):
+#     """Deleted Messages log."""
+#     if not raw_message.cached_message:
+#         guild = bot.get_guild(raw_message.guild_id)
+#         channel = bot.get_channel(raw_message.channel_id)
+#         message = await channel.fetch_message(raw_message.message_id)
+#     else:
+#         message = raw_message.cached_message
+#     # if not message.author.bot:  
+#         em = discord.Embed(color=message.author.color, title=f":wastebasket: Message Deleted in {channel.id} for {message.author.name} ({message.author.id})")
+#         em.description = f"{message.content}"
+#         em.set_footer(text=f"Requested by: {str(message.author)}", icon_url=message.author.avatar_url)
+#         await bot.get_guild(669119687530905610).get_channel(670895452547317777).send(embed=em)
+#     print(f'Message deleted in {raw_message.channel.id}')    
+
+
+@bot.event
+async def on_message_delete(message):
+    """Deleted Messages log."""
+    # if not message.author.bot:  
+    # await bot.get_guild(669119687530905610).get_channel(669372334616084520).send(f""":wastebasket: {message.author.name} ({message.author.id}) message deleted in #{message.channel.name}:```{message.content}```""")
+    em = discord.Embed(color=message.author.color, title=f":wastebasket: Message Deleted in {message.channel.name}")
+    em.description = f"View: {message.channel.mention}\n```{message.content}```"
+    em.set_footer(text=f"Sender: {str(message.author)} ( {message.author.id} )", icon_url=message.author.avatar_url)
+    await bot.get_guild(669119687530905610).get_channel(670895452547317777).send(embed=em)
+    print(f'Message deleted in {message.channel.name}')   
+
+
 try: 
 
     bot.run( get_secret() )
