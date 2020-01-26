@@ -110,6 +110,30 @@ async def say(ctx, *, message: commands.clean_content()):
     finally:
         await ctx.send(message)    
 
+      
+    
+    
+    
+    
+@client.command()
+@commands.has_any_role("Dev","Private")
+async def addMember(ctx, member : discord.Member = None, *,reason=None):
+    await ctx.message.delete()
+    role = get(member.guild.roles, name="Member")
+    await member.add_roles(role)
+
+@client.command()
+@commands.has_any_role("Dev","Private")
+async def removeMember(ctx, member : discord.Member = None, *, reason=None):
+    await ctx.message.delete()
+    role = get(member.guild.roles, name="Member")
+    await member.remove_roles(role)
+    channel = await ctx.author.create_dm()
+    await channel.send(f'Removed role of Member from {member.name}')
+
+
+    
+    
 @bot.command()
 async def test(ctx):
     """Allow my bot to join the hood. YOUR hood."""
