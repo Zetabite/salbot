@@ -2,6 +2,14 @@ import asyncio
 import discord
 from discord.ext import commands
 
+def embed_perms(message):
+    try:
+        check = message.author.permissions_in(message.channel).embed_links
+    except:
+        check = True
+
+    return check
+
 class Userinfo(commands.Cog):
 
     def __init__(self, bot):
