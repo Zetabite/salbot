@@ -7,7 +7,7 @@ from discord.ext.commands.cooldowns import BucketType
 
 from bot_secret import get_secret
 
-bot = commands.Bot(command_prefix = '.')
+bot = commands.Bot(command_prefix = '!')
 
 @bot.event
 async def on_ready():
