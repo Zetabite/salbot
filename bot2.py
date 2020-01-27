@@ -43,14 +43,14 @@ async def on_message_delete(message):
     await bot.get_guild(669119687530905610).get_channel(670895452547317777).send(embed=em)
     print(f'Message deleted in {message.channel.name}')   
 
-@bot.event
-async def on_message(message):
-    guild = message.guild
-    if guild:
-        path = "chatlogs/{}.txt".format(guild.id)  
-        with open(path, 'a+') as f:
-            print(f"{message.author.name} : {message.content}".format(message), file=f)
-    await bot.process_commands(message)
+# @bot.event
+# async def on_message(message):
+#     guild = message.guild
+#     if guild:
+#         path = "chatlogs/{}.txt".format(guild.id)  
+#         with open(path, 'a+') as f:
+#             print(f"{message.author.name} : {message.content}".format(message), file=f)
+#     await bot.process_commands(message)
 
 ##------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
