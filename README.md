@@ -25,7 +25,7 @@ lmao what
 - [x] Add/Remove role command for new members.
 - [ ] Add Cooldowns to commands
 - [ ] Profile Information Command
-
+- [ ] Auto update from git commits
 **Long term Todo**
 ------
 - [ ] Add automatic discord updates
