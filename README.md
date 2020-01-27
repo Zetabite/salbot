@@ -30,3 +30,4 @@ lmao what
          - Piracy Sites
          - Words that start with N
          - Ip Addresses
+- [ ] Profile Information Command
