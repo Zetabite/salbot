@@ -24,3 +24,4 @@ lmao what
 - [x] Automate the new member role process
 - [x] Figure out embeding
 - [x] Add/Remove role command for new members.
+- [ ] Add Cooldowns to commands
