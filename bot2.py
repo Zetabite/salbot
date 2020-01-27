@@ -169,7 +169,19 @@ async def on_message_delete(message):
     await bot.get_guild(669119687530905610).get_channel(670895452547317777).send(embed=em)
     print(f'Message deleted in {message.channel.name}')   
 
-
+@bot.command()
+async def announce(ctx, *, message: commands.clean_content()):
+    try:
+        await ctx.message.delete()
+    except discord.Forbidden:
+        pass
+    finally:
+        em = discord.Embed(color=ctx.author.color)
+        em.description = f"{message}"
+        em.set_footer(text=f"Requested by: {str(ctx.author)}", icon_url=ctx.author.avatar_url)
+        await ctx.send(embed=em)
+    
+    
 try: 
 
     bot.run( get_secret() )
