@@ -25,3 +25,8 @@ lmao what
 - [x] Figure out embeding
 - [x] Add/Remove role command for new members.
 - [ ] Add Cooldowns to commands
+- [ ] Auto delete messages
+         - Invite Links
+         - Piracy Sites
+         - Words that start with N
+         - Ip Addresses
