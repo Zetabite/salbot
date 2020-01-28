@@ -11,6 +11,7 @@ from discord.utils import get
 client_ = discord.Client()
 client = commands.Bot(command_prefix = '!')
 
+
 @client.event
 async def on_ready():
     client.load_extension("cogs.user_info")
@@ -27,6 +28,7 @@ async def on_memeber_remove(member):
 
 #Ping Command (Ex: Pong! 93ms)
 @client.command()
+
 async def ping(ctx):
     await ctx.send(f'> Pong! {round(client.latency * 1000)}ms')
 
