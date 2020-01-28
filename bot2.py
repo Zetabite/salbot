@@ -29,7 +29,6 @@ async def on_memeber_remove(member):
 
 #Ping Command (Ex: Pong! 93ms)
 @client.command()
-
 async def ping(ctx):
     await ctx.send(f'> Pong! {round(client.latency * 1000)}ms')
 
