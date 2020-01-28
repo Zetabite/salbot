@@ -62,7 +62,7 @@ def FAQMessage_factory(bot, names, regexes, channel_whitelist, message):
 
         @commands.Cog.listener()
         async def on_message(self, message):
-            if (not message.author.bot) and (message.author.id != self.bot.user.id) and message.channel.id in self.channel_whitelist:
+            if (not message.author.bot) and (message.author.id != self.bot.user.id) and message.channel.id in self.channel_whitelist and len(message.author.roles) < 2:
                 # check if any of the regexes are matched
                 if any(r.search(message.content) for r in self.regexes):
                     # send the message using the method below
@@ -107,7 +107,7 @@ def setup(bot):
         FAQMessage_factory(
             bot,
             ["seed", ],
-            [r"seed.is.?(?!n)", r"have.?the.?seed"],
+            [r"seed.is.?(?!n)", r"(?:have|know).?the.?seed"],
             channels,
             ">>> Hey, it looks like you mentioned what the seed is! If you actually found the seed, please message a mod. If you're saying this as a joke, please dont :)"
         ),
