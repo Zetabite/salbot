@@ -62,14 +62,15 @@ def FAQMessage_factory(bot, names, regexes, channel_whitelist, message):
 
         @commands.Cog.listener()
         async def on_message(self, message):
-            if (not message.author.bot) and (message.author.id != self.bot.user.id) and message.channel.id in self.channel_whitelist and len(message.author.roles) < 2:
+            if (not message.author.bot) and (message.author.id != self.bot.user.id) and message.channel.id in self.channel_whitelist:# and len(message.author.roles) <= 1:
                 # check if any of the regexes are matched
-                if any(r.search(message.content) for r in self.regexes):
+                if any(r.search(message.content.lower()) for r in self.regexes):
                     # send the message using the method below
                     try:
-                        await self.send(message, message.author)
+                        await self.send(message, message.author, delete_after=30)
                     except OnCooldownError as e:
                         await message.channel.send(f"{e}", delete_after=2)
+                    await message.author.send(self.message)
                 
         async def command_method(self, ctx, member: typing.Optional[discord.Member] = None):
             message = ctx.message
@@ -78,16 +79,16 @@ def FAQMessage_factory(bot, names, regexes, channel_whitelist, message):
             except OnCooldownError as e:
                 await message.channel.send(f"{message.author.mention} {e}", delete_after=5)
                 await message.delete()
-
+        
         # this is a seperate method because of the cooldown
         #  amount |  | per minutes 
-        @Cooldown(1, 5, lambda args, kwargs: args[1].author.id)
-        async def send(self, message, member):
+        @Cooldown(1, 20, lambda args, kwargs: args[1].author.id)
+        async def send(self, message, member,delete_after=None):
             ping = ""
             if member:
                 ping += member.mention + "\n"
             # simply send the message
-            await message.channel.send(ping + self.message)
+            await message.channel.send(ping + self.message, delete_after=delete_after)
 
     return FAQMessage(bot, names, regexes, channel_whitelist, message)
 
