@@ -62,7 +62,7 @@ def FAQMessage_factory(bot, names, regexes, channel_whitelist, message):
 
         @commands.Cog.listener()
         async def on_message(self, message):
-            if (not message.author.bot) and (message.author.id != self.bot.user.id) and message.channel.id in self.channel_whitelist:# and len(message.author.roles) <= 1:
+            if (not message.author.bot) and (message.author.id != self.bot.user.id) and message.channel.id in self.channel_whitelist and len(message.author.roles) <= 1:
                 # check if any of the regexes are matched
                 if any(r.search(message.content.lower()) for r in self.regexes):
                     # send the message using the method below
