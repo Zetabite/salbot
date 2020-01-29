@@ -4,18 +4,11 @@ lmao what
 
 **Commands**
 ------
-* .ping
-* .clean
-* .stop
-* .say
-* .joined
-* .test
-* .addMember
-* .removeMember
-* .kick
-* .ban
-* .test
-* .fuck
+* !ping -- gets a latency of the bot
+* !restart -- restarts and checks for updates
+* !addMember -- adds a member to the member role
+* .removeMember -- removes a memeber from the member role
+* !info|userinfo -- gets the current status of a user (nickname, game, voice channel, join discord date, join server date)
 
 **Todo**
 ------
