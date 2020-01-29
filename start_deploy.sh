@@ -1,5 +1,5 @@
 exitcode=69
-while [ exitcode -eq 69 ]
+while [ exitcode -eq 69 ]:
 do
     git stash push
     git fetch --all
