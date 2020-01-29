@@ -16,9 +16,9 @@ lmao what
 - [x] Automate the new member role process
 - [x] Figure out embeding
 - [x] Add/Remove role command for new members.
-- [*] Add Cooldowns to commands
-- [*] Profile Information Command
-- [*] Auto update from git commits
+- [x] Add Cooldowns to commands
+- [x] Profile Information Command
+- [x] Auto update from git commits
 **Long term Todo**
 ------
 - [ ] Auto delete messages
