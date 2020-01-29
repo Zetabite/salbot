@@ -4,14 +4,21 @@ import discord
 import random
 from discord.ext import commands
 from discord.ext.commands.cooldowns import BucketType
-
+    
 from bot_secret import get_secret
 from discord.utils import get
 
 client_ = discord.Client()
 client = commands.Bot(command_prefix = '!')
 
-
+import sys
+try:
+    if sys.argv[1] != "sc":
+        print("you need to start with the shell of batch script")
+        exit(1)
+except IndexError:
+    print("you need to start with the shell of batch script")
+    exit(1)
 @client.event
 async def on_ready():
     client.load_extension("cogs.user_info")
@@ -48,6 +55,11 @@ async def removemember(ctx, member : discord.Member = None, *, reason=None):
     role = get(member.guild.roles, name="Member")
     await member.remove_roles(role)
     await ctx.send(f'> Removed member role for {member.name}')
+
+@client.command()
+@commands.has_any_role("Moderator", "Administrator")
+async def restart(ctx):
+    exit(69) # this shoudld restart the bot if its started with start.sh
 
 
 
