@@ -61,7 +61,16 @@ async def removemember(ctx, member : discord.Member = None, *, reason=None):
 async def restart(ctx):
     exit(69) # this shoudld restart the bot if its started with start.sh
 
-
+badwords = ["nigger", "faggot", "pornhub.com"]    
+    
+@client.event
+async def on_message(message):
+	if any(word in message.content.lower() for word in badwords):
+		### Print log in console:
+		print('Removed message - %s : %s' % (message.author, message.content))
+		### Remove the message which triggered the bot
+		await message.delete()
+		### Send reply/notification
 
 ## ----------------------------------- DONT EDIT PAST THIS LINE UNLESS YOU KNOW WHAT YOU'RE DOING! --------------------------------------------
 if __name__ == "__main__": # only run bot if this file wasn't imported
