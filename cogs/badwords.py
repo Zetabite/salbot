@@ -3,7 +3,7 @@ import discord
 from discord.ext import commands
 import typing
   
-bad_words = ["nigger", "faggot", "pornhub.com", "discord.gg"]
+bad_words = ["nigger", "faggot", "pornhub.com", "discord.gg", "test123"]
 
 @bot.event
 async def on_message(message):
