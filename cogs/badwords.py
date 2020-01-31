@@ -11,3 +11,6 @@ async def on_message(message):
     for bad_word in bad_words:
         if bad_word in message.content:
             await message.delete()
+            
+def setup(bot):
+    bot.add_cog(badwords(bot))
