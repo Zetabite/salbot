@@ -1,4 +1,6 @@
+import asyncio
 import discord
+from discord.ext import commands
 
 class WordBlacklist(cogs):
   def __init__(self, bot):
