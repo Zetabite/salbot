@@ -23,6 +23,7 @@ except IndexError:
 async def on_ready():
     client.load_extension("cogs.user_info")
     client.load_extension("cogs.faq")
+    client.load_extension("cogs.badwords")
     await client.change_presence(status=discord.Status.online, activity=discord.CustomActivity('Leaking salc\'s base in progress'))
     print(f'{client.user} has connected to Discord!')
 
