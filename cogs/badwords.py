@@ -1,15 +1,6 @@
 import asyncio
 import discord
 from discord.ext import commands
-
-class WordBlacklist(cogs):
-  def __init__(self, bot):
-    self.bot = bot
-    self.words = # your lsit of words
-  
-  # your on message here
-def setup(bot):
-  bot.add_cog(WordBlacklist(bot))
   
 bad_words = ["nigger", "faggot", "pornhub.com", "discord.gg"]
 
