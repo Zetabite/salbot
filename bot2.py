@@ -52,6 +52,7 @@ async def reload(ctx):
 async def on_error(event, *args, **kwargs):
     logger.error(f"error in event: {event} with args {args},{kwargs}", exc_info=sys.exc_info())
 
+
 ## ----------------------------------- DONT EDIT PAST THIS LINE UNLESS YOU KNOW WHAT YOU'RE DOING! --------------------------------------------
 if __name__ == "__main__": # only run bot if this file wasn't imported
     try: 
