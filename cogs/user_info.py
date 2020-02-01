@@ -2,6 +2,8 @@ import asyncio
 import discord
 from discord.ext import commands
 import typing
+import logging
+logger = logging.getLogger('salc1bot')
 
 def get_user_image(user: discord.User):
     if str(user.avatar_url_as(static_format='png'))[54:].startswith('a_'):

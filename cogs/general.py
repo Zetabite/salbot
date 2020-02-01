@@ -1,6 +1,8 @@
 from discord.ext import commands
 import discord
 from discord.utils import get
+import logging
+logger = logging.getLogger('salc1bot')
 
 class General(commands.Cog):
     def __init__(self, bot):
