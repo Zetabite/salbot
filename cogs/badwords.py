@@ -7,14 +7,14 @@ class Badwords(commands.Cog):
     
 
     @commands.Cog.listener()
-    async def on_message(self, ctx, message):
+    async def on_message(self, message):
 	    if len(message.author.roles) <= 2 and any(word in message.content.lower() for word in self.badwords):
 		    ### Print log in console:
 		    print('Removed message - %s : %s' % (message.author, message.content))
 		    ### Remove the message which triggered the bot
 		    await message.delete()
 		    ### Send reply/notification
-		    await ctx.send(f':eyes:')
+		    await message.channel.send(f':eyes:')
 
 def setup(bot):
     bw = Badwords(bot, ["nigger", "faggot", "pornhub.com", "retarded"])
