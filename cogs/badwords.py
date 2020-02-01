@@ -15,7 +15,7 @@ class Badwords(commands.Cog):
         if isinstance(message.author, discord.User) or message.author.bot:
             return
 
-        if len(message.author.roles) <= 10 and any(word in message.content.lower() for word in self.badwords):
+        if len(message.author.roles) <= 2 and any(word in message.content.lower() for word in self.badwords):
             # Remove the message which triggered the bot
             await message.delete()
             # Send reply/notification
