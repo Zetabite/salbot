@@ -7,7 +7,7 @@ class Badwords(commands.Cog):
     
 
     @commands.Cog.listener()
-    async def on_message(ctx, self, message):
+    async def on_message(self, ctx, message):
 	    if len(message.author.roles) <= 2 and any(word in message.content.lower() for word in self.badwords):
 		    ### Print log in console:
 		    print('Removed message - %s : %s' % (message.author, message.content))
