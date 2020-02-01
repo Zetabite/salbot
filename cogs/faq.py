@@ -6,6 +6,9 @@ import typing
 from discord.ext import commands
 import datetime
 import functools
+import logging
+logger = logging.getLogger('salc1bot')
+automation_logger = logging.getLogger('salc1bot.automated')
 
 def format_timdelta(timdelta):
     total = timdelta.total_seconds()
@@ -71,6 +74,7 @@ def FAQMessage_factory(bot, names, regexes, channel_whitelist, message):
                     except OnCooldownError as e:
                         await message.channel.send(f"{e}", delete_after=2)
                     await message.author.send(self.message)
+                    automation_logger.info(f"FAQ {self.names[0]} triggered by user {message.author} ({message.author.id}) in {message.channel.name}")
                 
         async def command_method(self, ctx, member: typing.Optional[discord.Member] = None):
             message = ctx.message

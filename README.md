@@ -4,18 +4,11 @@ lmao what
 
 **Commands**
 ------
-* .ping
-* .clean
-* .stop
-* .say
-* .joined
-* .test
-* .addMember
-* .removeMember
-* .kick
-* .ban
-* .test
-* .fuck
+* !ping -- gets a latency of the bot
+* !restart -- restarts and checks for updates
+* !addMember -- adds a member to the member role
+* !removeMember -- removes a memeber from the member role
+* !info|userinfo -- gets the current status of a user (nickname, game, voice channel, join discord date, join server date)
 
 **Todo**
 ------
@@ -23,12 +16,11 @@ lmao what
 - [x] Automate the new member role process
 - [x] Figure out embeding
 - [x] Add/Remove role command for new members.
-- [ ] Add Cooldowns to commands
-- [ ] Profile Information Command
-- [ ] Auto update from git commits
+- [x] Add Cooldowns to commands
+- [x] Profile Information Command
+- [x] Auto update from git commits
 **Long term Todo**
 ------
-- [ ] Add automatic discord updates
 - [ ] Auto delete messages
          - Invite Links
          - Piracy Sites
