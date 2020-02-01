@@ -16,5 +16,5 @@ class Badwords(commands.Cog):
 		    ### Send reply/notification
 
 def setup(bot):
-    bw = Badwords(bot, ["nigger", "faggot", "pornhub.com"])
+    bw = Badwords(bot, ["nigger", "faggot", "pornhub.com", "retarded"])
     bot.add_cog(bw)
