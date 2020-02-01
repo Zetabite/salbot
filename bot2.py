@@ -19,24 +19,29 @@ try:
 except IndexError:
     print("you need to start with the shell of batch script")
     exit(1)
+
+extensions = [
+    "cogs.user_info",
+    "cogs.faq",
+    "cogs.badwords",
+    "cogs.member_management",
+    "cogs.general"
+]
+
 @client.event
 async def on_ready():
-    client.load_extension("cogs.user_info")
-    client.load_extension("cogs.faq")
-    client.load_extension("cogs.badwords")
-    client.load_extension("cogs.member_management")
+    for exten in extensions:
+        client.load_extension(exten)
     await client.change_presence(status=discord.Status.online, activity=discord.Game('Leaking salc\'s base in progress'))
     print(f'{client.user} has connected to Discord!')
 
-#Ping Command (Ex: Pong! 93ms)
-@client.command()
-async def ping(ctx):
-    await ctx.send(f'> Pong! {round(client.latency * 1000)}ms')
 
 @client.command()
 @commands.has_any_role("Moderator", "Administrator")
-async def restart(ctx):
-    exit(69) # this shoudld restart the bot if its started with start.sh
+async def reload(ctx):
+    for exten in extensions:
+        client.reload_extension(exten)
+    await ctx.send("Reload Succesfull")
 
 ## ----------------------------------- DONT EDIT PAST THIS LINE UNLESS YOU KNOW WHAT YOU'RE DOING! --------------------------------------------
 if __name__ == "__main__": # only run bot if this file wasn't imported
