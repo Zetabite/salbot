@@ -24,7 +24,7 @@ class MemberManagement(commands.Cog):
         await member.add_roles(role)
         logmsg = f'> Added member role for {member}'
         await ctx.send(logmsg)
-        logger.info(logmsg)
+        logger.info(f"{ctx.author} {logmsg[1:]}")
 
     @commands.command()
     @commands.has_any_role("Moderator","Private Chat Access","Administrator")
@@ -34,7 +34,7 @@ class MemberManagement(commands.Cog):
         await member.remove_roles(role)
         logmsg = f'> Removed member role for {member}'
         await ctx.send(logmsg)
-        logger.info(logmsg)
+        logger.info(f"{ctx.author} {logmsg[1:]}")
 
 def setup(bot):
     bot.add_cog(MemberManagement(bot))
