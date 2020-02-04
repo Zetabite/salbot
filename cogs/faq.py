@@ -137,6 +137,13 @@ def setup(bot):
             channels,
             ">>> Hey, it looks like want to help! If you have reverse-engineering or coding experience head to <#666758275504537604>, otherwise you can help a recreation project in <#666813360867770388>"
         ),
+        FAQMessage_factory(
+            bot,
+            ["notchmessage", "notchmsg", "notch" ],
+            [],
+            channels,
+            ">>> We have a response from notch, so we dont think its built or a custom seed https://i.vgy.me/zOLSYx.png"
+        ),
     ]
 
     for faq in faq_messages:
