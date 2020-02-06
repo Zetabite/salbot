@@ -31,7 +31,11 @@ class Cooldown:
 
     def __call__(self, func):
         async def wrapped(*args, **kwargs):
-            id_ = self.region(args, kwargs)
+            try:
+                id_ = self.region(args, kwargs)
+            except Exception as e:
+                logger.error(f"Error in cooldown wrapper: {e}")
+                return await func(*args, **kwargs)
             last_call = self.cooldowns.get(id_)
             if last_call:
                 cooldown_done = last_call + self.window
@@ -86,7 +90,7 @@ def FAQMessage_factory(bot, names, regexes, channel_whitelist, message):
         
         # this is a seperate method because of the cooldown
         #  amount |  | per minutes 
-        @Cooldown(1, 20, lambda args, kwargs: args[1].author.id)
+        @Cooldown(1, 5, lambda args, kwargs: args[2].id)
         async def send(self, message, member,delete_after=None):
             ping = ""
             if member:
