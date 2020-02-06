@@ -25,8 +25,7 @@ lmao what
 **Long term Todo**
 ------
 - [ ] Auto delete messages
-         - Invite Links
-         - Piracy Sites
-         - Words that start with N
-         - Ip Addresses        
+         - [ ] Invite Links
+         - [x] Words that start with N
+         - [ ] Ip Addresses        
 
