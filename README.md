@@ -21,6 +21,7 @@ lmao what
 - [x] Auto update from git commits
 - [ ] Warn (why they've been warned)
 - [ ] Mute (why they've been muted)
+
 **Long term Todo**
 ------
 - [ ] Auto delete messages
