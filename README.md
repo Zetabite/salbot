@@ -1,7 +1,6 @@
 Info
 ------
-lmao what
-moms spaghetti gay
+This is a discord bot nothing cool
 
 **Commands**
 ------
