@@ -19,8 +19,7 @@ This is a discord bot nothing cool
 - [x] Add Cooldowns to commands
 - [x] Profile Information Command
 - [x] Auto update from git commits
-- [ ] Warn (why they've been warned)
-- [ ] Mute (why they've been muted)
+
 
 **Long term Todo**
 ------
