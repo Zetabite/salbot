@@ -1,7 +1,7 @@
 Info
 ------
 lmao what
-moms spaghetti
+moms spaghetti gay
 
 **Commands**
 ------
