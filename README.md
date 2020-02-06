@@ -19,10 +19,13 @@ lmao what
 - [x] Add Cooldowns to commands
 - [x] Profile Information Command
 - [x] Auto update from git commits
+- [ ] Warn (why they've been warned)
+- [ ] Mute (why they've been muted)
 **Long term Todo**
 ------
 - [ ] Auto delete messages
          - Invite Links
          - Piracy Sites
          - Words that start with N
-         - Ip Addresses
+         - Ip Addresses        
+
