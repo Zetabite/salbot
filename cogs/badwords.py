@@ -19,7 +19,7 @@ class Badwords(commands.Cog):
             # Remove the message which triggered the bot
             await message.delete()
             # Send reply/notification
-            await message.channel.send(f':eyes: {message.author}')
+            await message.channel.send(f':eyes')
             automation_logger.info(f"user {message.author} ({message.author.id}) sent bad word in channel {message.channel.name}, message: \"{message.content[0:1500]}\" ")
 
 
