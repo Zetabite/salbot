@@ -1,6 +1,6 @@
 Info
 ------
-lmao what
+This is a discord bot nothing cool
 
 **Commands**
 ------
@@ -19,10 +19,12 @@ lmao what
 - [x] Add Cooldowns to commands
 - [x] Profile Information Command
 - [x] Auto update from git commits
+
+
 **Long term Todo**
 ------
 - [ ] Auto delete messages
-         - Invite Links
-         - Piracy Sites
-         - Words that start with N
-         - Ip Addresses
+         - [ ] Invite Links
+         - [x] Words that start with N
+         - [ ] Ip Addresses        
+

@@ -148,6 +148,14 @@ def setup(bot):
             channels,
             ">>> We have a response from notch, so we dont think its built or a custom seed https://i.vgy.me/zOLSYx.png"
         ),
+        FAQMessage_factory(
+            bot,
+            ["cracked" ],
+            [r"cracked", r"offline", r"tlauncher"],
+            [675506504908013591],
+            ">>> The anarchy server does NOT allow cracked accounts. Discussion about cracked accounts or account sharing is STRICTLY forbidden"
+        ),
+        
     ]
 
     for faq in faq_messages:
