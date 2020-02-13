@@ -30,7 +30,8 @@ class ServerStatus(commands.Cog):
                 embed.add_field(name="Ping", value="{0:.1f}ms (to this bot)".format(ping), inline=True)
                 embed.add_field(name="Version", value="{}".format(version), inline=True)
                 await ctx.send(embed=embed)
-        await ctx.send("No server linked to this channel", delete_after=10)
+        else:
+            await ctx.send("No server linked to this channel", delete_after=10)
 
 def setup(bot):
     channel_server_mapping = {
