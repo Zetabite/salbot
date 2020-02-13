@@ -23,13 +23,13 @@ import sys
 #    exit(1)
 
 extensions = [
+    "cogs.general",
     "cogs.logging",
     "cogs.user_info",
     "cogs.faq",
     "cogs.serverstatus",
     "cogs.badwords",
-    "cogs.member_management",
-    "cogs.general"
+    "cogs.member_management"
 ]
 
 @client.event
