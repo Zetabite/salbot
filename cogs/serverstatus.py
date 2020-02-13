@@ -27,7 +27,7 @@ class ServerStatus(commands.Cog):
                 motd = status.description['text']
                 embed = discord.Embed(title="Sever status for {}".format(server.host), description="{}".format(motd))
                 embed.add_field(name="Players", value="{}/{}".format(curP,maxP), inline=True)
-                embed.add_field(name="Ping", value="{0:d}ms (to this bot)".format(ping), inline=True)
+                embed.add_field(name="Ping", value="{0:.1f}ms (to this bot)".format(ping), inline=True)
                 embed.add_field(name="Version", value="{}".format(version), inline=True)
                 await ctx.send(embed=embed)
         await ctx.send("No server linked to this channel", delete_after=10)
