@@ -13,7 +13,7 @@ class ServerStatus(commands.Cog):
     @commands.command()
     @commands.cooldown(1, 20, type=commands.BucketType.channel)
     async def server(self, ctx):
-        server = channel_server_mapping.get(ctx.channel.id)
+        server = self.channel_server_mapping.get(ctx.channel.id)
         if server:
             try:
                 status = server.status()
