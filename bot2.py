@@ -26,6 +26,7 @@ extensions = [
     "cogs.logging",
     "cogs.user_info",
     "cogs.faq",
+    "cogs.serverstatus"
     "cogs.badwords",
     "cogs.member_management",
     "cogs.general"
