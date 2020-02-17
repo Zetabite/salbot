@@ -143,7 +143,7 @@ def setup(bot):
         ),
         FAQMessage_factory(
             bot,
-            ["notchmessage", "notchmsg", "notch" ],
+            ["notchmessage", "notchmsg", "notch", "built"],
             [],
             channels,
             ">>> We have a response from notch, so we dont think its built or a custom seed https://i.vgy.me/zOLSYx.png"
@@ -154,6 +154,20 @@ def setup(bot):
             [r"cracked", r"offline", r"tlauncher"],
             [675506504908013591],
             ">>> The anarchy server does NOT allow cracked accounts. Discussion about cracked accounts or account sharing is STRICTLY forbidden"
+        ),
+        FAQMessage_factory(
+            bot,
+            ["nosearch"],
+            [],
+            channels,
+            ">>> There are 230.8 Trillion random seeds. It's impossible to search all of them by hand. And just so you know, you can NOT input seeds in the version that pack.png first appears in, and any version before that. Yes they could've changed the games code to input a seed but they wouldn't do that just for a picture."
+        ),
+        FAQMessage_factory(
+            bot,
+            ["hardware"],
+            [],
+            channels,
+            ">>> It's impossible to create 'bots' or use 'ai/ml' to search worlds for the seed. Even with insane hardware, it's just not possible. If you think you have good enough hardware for it, here's a nice graph showing the performance of a few machines(we have access to several dgx-2s) https://i.vgy.me/scLoFD.png"
         ),
         
     ]
