@@ -11,7 +11,8 @@ class General(commands.Cog):
     #Ping Command (Ex: Pong! 93ms)
     @commands.command()
     async def ping(self, ctx):
-        await ctx.send(f'> Pong! {round(self.bot.latency * 1000)}ms')
+        await ctx.message.delete()
+        await ctx.send(f'> Pong! {round(self.bot.latency * 1000)}ms', delete_after=10)
 
     @commands.command()
     @commands.has_any_role("Moderator", "Administrator")
