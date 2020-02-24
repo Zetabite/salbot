@@ -18,8 +18,7 @@ class Badwords(commands.Cog):
         if len(message.author.roles) <= 2 and any(word in message.content.lower() for word in self.badwords):
             # Remove the message which triggered the bot
             await message.delete()
-            # Send reply/notification
-            await message.channel.send(f':eyes:')
+            await message.author.send("There are some words discord doesn't like, we have to filter them out.")
             automation_logger.info(f"user {message.author} ({message.author.id}) sent bad word in channel {message.channel.name}, message: \"{message.content[0:1500]}\" ")
 
 
