@@ -73,7 +73,6 @@ def FAQMessage_factory(bot, names, regexes, channel_whitelist, message):
                 # check if any of the regexes are matched
                 if any(r.search(message.content.lower()) for r in self.regexes):
                     # send the message using the method below
-                    await message.delete()
                     try:
                         await self.send(message, message.author, delete_after=30)
                     except OnCooldownError as e:
@@ -83,6 +82,7 @@ def FAQMessage_factory(bot, names, regexes, channel_whitelist, message):
                 
         async def command_method(self, ctx, member: typing.Optional[discord.Member] = None):
             message = ctx.message
+            await message.delete()
             try:
                 await self.send(message, member, delete_after=30)
             except OnCooldownError as e:
