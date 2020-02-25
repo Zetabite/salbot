@@ -73,6 +73,7 @@ def FAQMessage_factory(bot, names, regexes, channel_whitelist, message):
                 # check if any of the regexes are matched
                 if any(r.search(message.content.lower()) for r in self.regexes):
                     # send the message using the method below
+                    await message.delete()
                     try:
                         await self.send(message, message.author, delete_after=30)
                     except OnCooldownError as e:
@@ -83,7 +84,7 @@ def FAQMessage_factory(bot, names, regexes, channel_whitelist, message):
         async def command_method(self, ctx, member: typing.Optional[discord.Member] = None):
             message = ctx.message
             try:
-                await self.send(message, member)
+                await self.send(message, member, delete_after=30)
             except OnCooldownError as e:
                 await message.channel.send(f"{message.author.mention} {e}", delete_after=5)
                 await message.delete()
@@ -91,7 +92,7 @@ def FAQMessage_factory(bot, names, regexes, channel_whitelist, message):
         # this is a seperate method because of the cooldown
         #  amount |  | per minutes 
         @Cooldown(1, 5, lambda args, kwargs: args[2].id)
-        async def send(self, message, member,delete_after=None):
+        async def send(self, message, member,delete_after=45):
             ping = ""
             if member:
                 ping += member.mention + "\n"
@@ -154,20 +155,6 @@ def setup(bot):
             [r"cracked", r"offline", r"tlauncher"],
             [675506504908013591],
             ">>> The anarchy server does NOT allow cracked accounts. Discussion about cracked accounts or account sharing is STRICTLY forbidden"
-        ),
-        FAQMessage_factory(
-            bot,
-            ["nosearch"],
-            [],
-            channels,
-            ">>> There are 230.8 Trillion random seeds. It's impossible to search all of them by hand. And just so you know, you can NOT input seeds in the version that pack.png first appears in, and any version before that. Yes they could've changed the games code to input a seed but they wouldn't do that just for a picture."
-        ),
-        FAQMessage_factory(
-            bot,
-            ["hardware"],
-            [],
-            channels,
-            ">>> It's impossible to create 'bots' or use 'ai/ml' to search worlds for the seed. Even with insane hardware, it's just not possible. If you think you have good enough hardware for it, here's a nice graph showing the performance of a few machines(we have access to several dgx-2s) https://i.vgy.me/scLoFD.png"
         ),
         
     ]
