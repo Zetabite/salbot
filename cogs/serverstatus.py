@@ -13,6 +13,7 @@ class ServerStatus(commands.Cog):
     @commands.command()
     @commands.cooldown(1, 20, type=commands.BucketType.channel)
     async def server(self, ctx):
+        await ctx.message.delete()
         server = self.channel_server_mapping.get(ctx.channel.id)
         if server:
             try:
@@ -29,7 +30,7 @@ class ServerStatus(commands.Cog):
                 embed.add_field(name="Players", value="{}/{}".format(curP,maxP), inline=True)
                 embed.add_field(name="Ping", value="{0:.1f}ms (to this bot)".format(ping), inline=True)
                 embed.add_field(name="Version", value="{}".format(version), inline=True)
-                await ctx.send(embed=embed)
+                await ctx.send(embed=embed, delete_after=10)
         else:
             await ctx.send("No server linked to this channel", delete_after=10)
 

@@ -83,8 +83,9 @@ def FAQMessage_factory(bot, names, regexes, channel_whitelist, message):
         @commands.cooldown(1, 120, commands.BucketType.channel)
         async def command_method(self, ctx, member: typing.Optional[discord.Member] = None):
             message = ctx.message
+            await message.delete()
             try:
-                await self.send(message, member)
+                await self.send(message, member, delete_after=30)
             except OnCooldownError as e:
                 await message.channel.send(f"{message.author.mention} {e}", delete_after=5)
                 await message.delete()
@@ -92,7 +93,7 @@ def FAQMessage_factory(bot, names, regexes, channel_whitelist, message):
         # this is a seperate method because of the cooldown
         #  amount |  | per minutes 
         @Cooldown(1, 5, lambda args, kwargs: args[2].id)
-        async def send(self, message, member,delete_after=None):
+        async def send(self, message, member,delete_after=45):
             ping = ""
             if member:
                 ping += member.mention + "\n"
@@ -144,7 +145,7 @@ def setup(bot):
         ),
         FAQMessage_factory(
             bot,
-            ["notchmessage", "notchmsg", "notch" ],
+            ["notchmessage", "notchmsg", "notch", "built"],
             [],
             channels,
             ">>> We have a response from notch, so we dont think its built or a custom seed https://i.vgy.me/zOLSYx.png"
