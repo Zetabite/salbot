@@ -92,7 +92,7 @@ def FAQMessage_factory(bot, names, regexes, channel_whitelist, message):
         
         # this is a seperate method because of the cooldown
         #  amount |  | per minutes 
-        @Cooldown(1, 5, lambda args, kwargs: args[2].id)
+        @Cooldown(1, 1, lambda args, kwargs: args[2].id)
         async def send(self, message, member,delete_after=45):
             ping = ""
             if member:
@@ -153,9 +153,15 @@ def setup(bot):
         FAQMessage_factory(
             bot,
             ["cracked" ],
-            [r"cracked", r"offline", r"tlauncher"],
+            [r"cracked", r"tlauncher"],
             [675506504908013591],
             ">>> The anarchy server does NOT allow cracked accounts. Discussion about cracked accounts or account sharing is STRICTLY forbidden"
+        ),FAQMessage_factory(
+            bot,
+            ["hacked" ],
+            [r"hack"],
+            [675506504908013591],
+            ">>> We only talk about utility clients here, examples of which include impact, future, wwe and wurst."
         ),
         
     ]
