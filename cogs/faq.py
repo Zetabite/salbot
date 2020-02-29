@@ -161,7 +161,7 @@ def setup(bot):
             ["hacked" ],
             [r"hack"],
             [675506504908013591],
-            ">>> We only talk about utility clients here, examples of which include impact, future, wwe and wurst."
+            ">>> We only talk about utility clients here, please dont mention any "hacks". Examples of utility clients include Impact, Future, WWE and Wurst."
         ),
         
     ]
