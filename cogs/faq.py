@@ -76,7 +76,7 @@ def FAQMessage_factory(bot, names, regexes, channel_whitelist, message):
                     try:
                         await self.send(message, message.author, delete_after=30)
                     except OnCooldownError as e:
-                        await message.channel.send(f"{e}", delete_after=2)
+                        await message.channel.send(f"{e}", delete_after=5)
                     await message.author.send(self.message)
                     automation_logger.info(f"FAQ {self.names[0]} triggered by user {message.author} ({message.author.id}) in {message.channel.name}")
                 
@@ -162,6 +162,12 @@ def setup(bot):
             [r"hack"],
             [675506504908013591],
             ">>> We only talk about utility clients here, please dont mention any \"hacks\". Examples of utility clients include Impact, Future, WWE and Wurst."
+        ),FAQMessage_factory(
+            bot,
+            ["nocaptcha" ],
+            [r"(captcha|mapcha).*n.?t.*work", r"n.?t.{0,10}(captcha|mapcha)"],
+            [675506504908013591],
+            ">>> If the captcha isn't working for you, try turning off any 'fancy chat' or extra chat messages."
         ),
         
     ]
