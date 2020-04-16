@@ -29,7 +29,8 @@ extensions = [
     "cogs.faq",
     "cogs.serverstatus",
     "cogs.badwords",
-    "cogs.member_management"
+    "cogs.member_management",
+    "cogs.custom_help"
 ]
 
 @client.event
