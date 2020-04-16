@@ -41,6 +41,7 @@ class Userinfo(commands.Cog):
         self.bot = bot
 
     @commands.group(invoke_without_command=True, aliases=['user', 'uinfo', 'info', 'ui'])
+    @commands.has_any_role("Member", "Private Chat Access", "Private Pack.png Chat Access", "Moderator", "Administrator")
     async def userinfo(self, ctx, *, user: typing.Optional[discord.Member]):
         """Get user info. Ex: [p]info @user"""
         if ctx.invoked_subcommand is None:

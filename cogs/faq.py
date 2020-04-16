@@ -81,6 +81,7 @@ def FAQMessage_factory(bot, names, regexes, channel_whitelist, message):
                     automation_logger.info(f"FAQ {self.names[0]} triggered by user {message.author} ({message.author.id}) in {message.channel.name}")
                 
         @commands.cooldown(1, 120, commands.BucketType.channel)
+        @commands.has_any_role("Member", "Private Chat Access", "Private Pack.png Chat Access", "Moderator", "Administrator")
         async def command_method(self, ctx, member: typing.Optional[discord.Member] = None):
             message = ctx.message
             await message.delete()

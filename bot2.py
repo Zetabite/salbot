@@ -34,6 +34,7 @@ extensions = [
 
 @client.event
 async def on_ready():
+    client.remove_command('help')
     for exten in extensions:
         client.load_extension(exten)
         logger.info(f"loaded extension: {exten}")
