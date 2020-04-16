@@ -1,5 +1,6 @@
+from discord.ext import commands
+import logging
 import discord
-
 
 @commands.command(pass_context=True)
 @commands.has_any_role("Member", "Private Chat Access", "Private Pack.png Chat Access", "Moderator", "Administrator")
