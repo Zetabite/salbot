@@ -1,0 +1,3 @@
+[submodule "salbot-secrets"]
+	path = salbot-secrets
+	url = https://github.com/laundmo/salbot-secrets
