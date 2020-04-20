@@ -25,6 +25,5 @@ This is a discord bot nothing cool
 ------
 - [ ] Auto delete messages
          - [ ] Invite Links
-         - [x] Words that start with N
-         - [ ] Ip Addresses        
+         - [x] Words that start with N     
 
