@@ -4,23 +4,15 @@ import discord
 import random
 from discord.ext import commands
 from discord.ext.commands.cooldowns import BucketType
-    
-from bot_secret import get_secret
 from discord.utils import get
 import logging
+from dotenv import load_dotenv
+load_dotenv(dotenv_path="./salbot-secrets/.env")
+
 logger = logging.getLogger('salc1bot')
 
 client_ = discord.Client()
 client = commands.Bot(command_prefix = '!')
-
-import sys
-#try:
-#    if sys.argv[1] != "sc":
-#        print("you need to start with the shell of batch script")
-#        exit(1)
-#except IndexError:
-#    print("you need to start with the shell of batch script")
-#    exit(1)
 
 extensions = [
     "cogs.general",
@@ -31,7 +23,7 @@ extensions = [
     "cogs.badwords",
     "cogs.member_management",
     "cogs.custom_help",
-    "cogs.autorankup"
+    "salbot-secrets.autorankup"
 ]
 
 @client.event
@@ -60,6 +52,6 @@ async def on_error(event, *args, **kwargs):
 ## ----------------------------------- DONT EDIT PAST THIS LINE UNLESS YOU KNOW WHAT YOU'RE DOING! --------------------------------------------
 if __name__ == "__main__": # only run bot if this file wasn't imported
     try: 
-        client.run( get_secret() )
+        client.run(os.environ["TOKEN"])
     except discord.errors.LoginFailure as error:
         logger.info(f"Error logging in! Error: {error}" )
