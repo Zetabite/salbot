@@ -30,7 +30,8 @@ extensions = [
     "cogs.serverstatus",
     "cogs.badwords",
     "cogs.member_management",
-    "cogs.custom_help"
+    "cogs.custom_help",
+    "cogs.autorankup"
 ]
 
 @client.event
