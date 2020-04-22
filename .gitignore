@@ -2,7 +2,7 @@
 bot_secret.txt
 chatlogs/*
 salbot-secrets/*
-
+salbot-secrets
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
