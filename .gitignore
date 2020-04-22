@@ -3,6 +3,7 @@ bot_secret.txt
 chatlogs/*
 salbot-secrets/*
 salbot-secrets
+data/autorankup.db
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
