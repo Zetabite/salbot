@@ -3,6 +3,7 @@ import discord
 from discord.utils import get
 import logging
 logger = logging.getLogger('salc1bot')
+import os
 
 class General(commands.Cog):
     def __init__(self, bot):
@@ -18,8 +19,9 @@ class General(commands.Cog):
     @commands.command()
     @commands.has_any_role("Moderator", "Administrator")
     async def restart(self, ctx):
+        await  self.bot.close()
+        os.system('echo "sleep 10; kill $PPID" |at now')
         exit(69) # this should restart the bot if its started with start.sh
-
 
 def setup(bot):
     bot.add_cog(General(bot))
