@@ -54,4 +54,5 @@ if __name__ == "__main__": # only run bot if this file wasn't imported
     try: 
         client.run(os.environ["TOKEN"])
     except discord.errors.LoginFailure as error:
+        print("wrong token")
         logger.info(f"Error logging in! Error: {error}" )
