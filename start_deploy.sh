@@ -1,4 +1,5 @@
-until python3 bot2.py sc;do
+export GIT_SSH_COMMAND="ssh"
+until python3 bot2.py;do
     git stash push
     git fetch --all
     git reset --hard origin/deploy
