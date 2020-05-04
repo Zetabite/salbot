@@ -12,7 +12,6 @@ load_dotenv(dotenv_path="./salbot-secrets/.env")
 
 logger = logging.getLogger('salc1bot')
 
-client_ = discord.Client()
 client = commands.Bot(command_prefix = '!')
 
 extensions = [
