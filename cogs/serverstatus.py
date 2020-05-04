@@ -38,6 +38,5 @@ class ServerStatus(commands.Cog):
 def setup(bot):
     channel_server_mapping = {
         588040378188431486: "2b2t.org",
-        675506504908013591: "mc.salc1.com",
     }
     bot.add_cog(ServerStatus(bot, channel_server_mapping))
