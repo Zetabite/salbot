@@ -5,19 +5,14 @@ import aiosqlite
 from pathlib import Path
 logger = logging.getLogger('salc1bot')
 automation_logger = logging.getLogger('salc1bot.automated')
-db_p = Path("./data/autorankup.db").resolve()
 
 class Badwords(commands.Cog):
     def __init__(self, bot, badwords):
         self.bot = bot
         self.badwords = badwords
-        self.bot.loop.create_task(self.ainit())
-    
-    async def ainit(self):
-        self.conn = await aiosqlite.connect(db_p)
     
     async def deluser(self, id):
-        await self.conn.execute(f"DELETE FROM messagecount WHERE user_id = {id};")
+        await self.bot.sql_conn.execute(f"DELETE FROM messagecount WHERE user_id = {id};")
         logger.debug(f"Deleted database entry for {id}")
 
     @commands.Cog.listener()
