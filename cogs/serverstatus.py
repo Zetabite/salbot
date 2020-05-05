@@ -12,7 +12,7 @@ class ServerStatus(commands.Cog):
     
     @commands.command()
     @commands.cooldown(1, 20, type=commands.BucketType.channel)
-    @commands.has_any_role("Member", "Private Chat Access", "Private Pack.png Chat Access", "Moderator", "Administrator")
+    @commands.has_any_role("Member", "Private Chat Access", "OG Role That Has No Purpose", "Moderator", "Administrator")
     async def server(self, ctx):
         await ctx.message.delete()
         server = self.channel_server_mapping.get(ctx.channel.id)

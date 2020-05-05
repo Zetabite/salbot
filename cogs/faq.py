@@ -112,6 +112,8 @@ def setup(bot):
                 # REMOVED 666813360867770388 = pack_png-re-creation
                 # 660701994549379125 = general chat in cactus uwu's server(testing purposes)
                 # 669119687530905613 = not sure?
+                # 436411303351943188 = video discussion in sals server
+                # 548308507636662283 = general chat in sals server
                 
 
     faq_messages = [
