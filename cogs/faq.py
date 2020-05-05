@@ -106,7 +106,7 @@ def FAQMessage_factory(bot, names, regexes, channel_whitelist, message):
 
 def setup(bot):
     channels = [666575359411748875, 666758275504537604,
-                660701994549379125, 669119687530905613]
+                660701994549379125, 669119687530905613, 436411303351943188, 548308507636662283]
                 # 666575359411748875 = general-pack_png-discussion
                 # 666758275504537604 = seed-reverse-engineering
                 # REMOVED 666813360867770388 = pack_png-re-creation
