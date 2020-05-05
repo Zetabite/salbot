@@ -8,11 +8,16 @@ from discord.ext.commands.cooldowns import BucketType
 from discord.utils import get
 import logging
 from dotenv import load_dotenv
+from pathlib import Path
+import aiosqlite
 load_dotenv(dotenv_path="./salbot-secrets/.env")
 
 logger = logging.getLogger('salc1bot')
 
 client = commands.Bot(command_prefix = '!')
+
+db_p = Path("./data/autorankup.db").resolve()
+
 
 extensions = [
     "cogs.general",
@@ -29,6 +34,7 @@ extensions = [
 @client.event
 async def on_ready():
     client.remove_command('help')
+    client.sql_conn = await aiosqlite.connect(db_p)
     for exten in extensions:
         client.load_extension(exten)
         logger.info(f"loaded extension: {exten}")
