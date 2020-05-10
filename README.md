@@ -1,14 +1,14 @@
 Info
 ------
-This is a discord bot nothing cool
+This is a custom, one use discord bot, nothing cool.
 
 **Commands**
 ------
 * !ping -- gets a latency of the bot
 * !restart -- restarts and checks for updates
 * !addMember -- adds a member to the member role
-* !removeMember -- removes a memeber from the member role
-* !info|userinfo -- gets the current status of a user (nickname, game, voice channel, join discord date, join server date)
+* !removeMember -- removes a member from the member role
+* !info|userinfo|ui -- gets the current status of a user (nickname, game, voice channel, join discord date, join server date)
 
 **Todo**
 ------
@@ -24,6 +24,6 @@ This is a discord bot nothing cool
 **Long term Todo**
 ------
 - [ ] Auto delete messages
-         - [ ] Invite Links
-         - [x] Words that start with N     
+- [ ] Invite Links
+- [x] Words that start with N     
 
