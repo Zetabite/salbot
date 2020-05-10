@@ -23,7 +23,8 @@ This is a custom, one use discord bot, nothing cool.
 
 **Long term Todo**
 ------
-- [ ] Auto delete messages
+Automaticaly delete:
+- [X] Messages (to prevent spam)
 - [ ] Invite Links
 - [x] Words that start with N     
 
