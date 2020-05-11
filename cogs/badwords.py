@@ -14,13 +14,19 @@ class Badwords(commands.Cog):
     async def deluser(self, id):
         await self.bot.sql_conn.execute(f"DELETE FROM messagecount WHERE user_id = {id};")
         logger.debug(f"Deleted database entry for {id}")
+        
+    def isExempt(self, author: discord.User):
+        for role in ["Administrator", "Moderator"]:
+            if role in author.roles:
+                return True
+        return False
 
     @commands.Cog.listener()
     async def on_message(self, message):
         if isinstance(message.author, discord.User) or message.author.bot:
             return
 
-        if len(message.author.roles) <= 2 and any(word in message.content.lower() for word in self.badwords):
+        if not self.isExempt(message.author) and any(word in message.content.lower() for word in self.badwords):
             # Remove the message which triggered the bot
             await message.delete()
             await message.author.send("There are some words discord doesn't like, we have to filter them out.")

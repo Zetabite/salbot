@@ -81,7 +81,7 @@ def FAQMessage_factory(bot, names, regexes, channel_whitelist, message):
                     automation_logger.info(f"FAQ {self.names[0]} triggered by user {message.author} ({message.author.id}) in {message.channel.name}")
                 
         @commands.cooldown(1, 120, commands.BucketType.channel)
-        @commands.has_any_role("Member", "Private Chat Access", "Private Pack.png Chat Access", "Moderator", "Administrator")
+        @commands.has_any_role("Member", "Private Chat Access", "OG Role That Has No Purpose", "Moderator", "Administrator")
         async def command_method(self, ctx, member: typing.Optional[discord.Member] = None):
             message = ctx.message
             await message.delete()
@@ -106,7 +106,15 @@ def FAQMessage_factory(bot, names, regexes, channel_whitelist, message):
 
 def setup(bot):
     channels = [666575359411748875, 666758275504537604,
-                666813360867770388, 660701994549379125, 669119687530905613]
+                660701994549379125, 669119687530905613, 436411303351943188, 548308507636662283]
+                # 666575359411748875 = general-pack_png-discussion
+                # 666758275504537604 = seed-reverse-engineering
+                # REMOVED 666813360867770388 = pack_png-re-creation
+                # 660701994549379125 = general chat in cactus uwu's server(testing purposes)
+                # 669119687530905613 = not sure?
+                # 436411303351943188 = video discussion in sals server
+                # 548308507636662283 = general chat in sals server
+                
 
     faq_messages = [
         FAQMessage_factory(
@@ -118,7 +126,7 @@ def setup(bot):
         ),
         FAQMessage_factory(
             bot,
-            ["seed", ],
+            ["seed"],
             [r"seed.is.?(?!n)", r"(?:have|know).?the.?seed"],
             channels,
             ">>> Hey, it looks like you mentioned what the seed is! If you actually found the seed, please message a mod. If you're saying this as a joke, please dont :)"
@@ -147,28 +155,52 @@ def setup(bot):
         FAQMessage_factory(
             bot,
             ["notchmessage", "notchmsg", "notch", "built"],
-            [],
+            [r"man.made", r"was built"],
             channels,
             ">>> We have a response from notch, so we dont think its built or a custom seed https://i.vgy.me/zOLSYx.png"
         ),
         FAQMessage_factory(
             bot,
-            ["cracked" ],
+            ["cracked"],
             [r"cracked", r"tlauncher"],
-            [675506504908013591],
+            channels,
             ">>> The anarchy server does NOT allow cracked accounts. Discussion about cracked accounts or account sharing is STRICTLY forbidden"
         ),FAQMessage_factory(
             bot,
-            ["hacked" ],
+            ["hacked"],
             [r"hack"],
-            [675506504908013591],
-            ">>> We only talk about utility clients here, please dont mention any \"hacks\". Examples of utility clients include Impact, Future, WWE and Wurst."
+            channels,
+            ">>> We only talk about utility clients here, please dont mention any \"hacks\". Examples of utility clients include Impact, Future, WWE and Wurst. Also, please do NOT talk about hacking anyone or anything. "
         ),FAQMessage_factory(
             bot,
-            ["nocaptcha" ],
-            [r"(captcha|mapcha).*n.?t.*work", r"n.?t.{0,10}(captcha|mapcha)"],
-            [675506504908013591],
-            ">>> If the captcha isn't working for you, try turning off any 'fancy chat' or extra chat messages."
+            ["devs"],
+            [r"(ask|email|mojang).*(devs|mojang)"],
+            channels,
+            ">>> Please don't contact Mojang developers about this. They have already been contacted, and they don't know the seed. https://i.vgy.me/zOLSYx.png"
+        ),FAQMessage_factory(
+            bot,
+            ["tryseed"],
+            [r"try.*seed"],
+            channels,
+            ">>> Hey! Just so you know the seed was randomly generated and it is NOT a word. Also, please don't say its [insert number seed here] because that seed probably wasn't generated. Want to check generation? Use this nice Algorithm! boolean validSeed(long a){long b=18218081,c=1L<<48,d=7847617,e=((((d*((24667315*(a>>>32)+b*(int)a+67552711)>>32)-b*((-4824621*(a>>>32)+d*(int)a+d)>>32))-11)*0xdfe05bcb1365L)%c);return((((0x5deece66dl*e+11)%c)>>16)<<32)+(int)(((0xbb20b4600a69L*e+0x40942de6baL)%c)>>16)==a;}"
+        ),FAQMessage_factory(
+            bot,
+            ["found"],
+            [r"(been|have|you|seed).*found.*(seed|)", r"find.*seed", r"(search|searching|hunt).*(active|still|).*(search|seed|).*(seed|)"],
+            channels,
+            ">>> The seed has not been found yet, and it's currently being searched for! You can look at https://packpng.com/roadmap and https://packpng.com/method for more info!"
+        ),FAQMessage_factory(
+            bot,
+            ["searchall"],
+            [r"search.*(every|all).*seed"],
+            channels,
+            ">>> Searching every seed would take longer than your lifespan, even with very powerful hardware!"
+        ),FAQMessage_factory(
+            bot,
+            ["raiding"],
+            [r"raid", r"destroy.*server", r"ruin.*server"],
+            channels,
+            ">>> Hey! Please don't talk about ruining/destroying/raiding servers! This includes Discord, Minecraft and any other type of server. It's against TOS."
         ),
         
     ]
