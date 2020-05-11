@@ -3,7 +3,7 @@ import logging
 import discord
 
 @commands.command(pass_context=True)
-@commands.has_any_role("Member", "Private Chat Access", "Private Pack.png Chat Access", "Moderator", "Administrator")
+@commands.has_any_role("Member", "Private Chat Access", "OG Role That Has No Purpose", "Moderator", "Administrator")
 async def help(self,ctx,*cog):
     """Gets all cogs and commands of mine."""
     try:
