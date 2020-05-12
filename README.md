@@ -24,7 +24,7 @@ This is a custom, one use discord bot, nothing cool.
 **Long term Todo**
 ------
 Automaticaly delete:
-- [X] Messages (to prevent spam)
-- [ ] Invite Links
+- [x] Messages (to prevent spam)
+- [x] Invite Links
 - [x] Words that start with N     
 
