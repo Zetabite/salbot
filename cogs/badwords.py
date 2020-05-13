@@ -17,7 +17,7 @@ class Badwords(commands.Cog):
         
     def isExempt(self, author: discord.User):
         for role in ["Administrator", "Moderator"]:
-            if role in author.roles:
+            if role in map(str, author.roles):
                 return True
         return False
 
