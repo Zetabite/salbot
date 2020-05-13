@@ -1,3 +1,4 @@
 discord.py
 expiring-dict
 aiosqlite
+python-dotenv
