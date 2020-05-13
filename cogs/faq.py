@@ -207,6 +207,18 @@ def setup(bot):
             [r"(client|hack).{,15}al.{0,2}"],
             channels,
             ">>> SalC1 uses Future Utility Client"
+        ),FAQMessage_factory(
+            bot,
+            ["faq"],
+            [],
+            channels,
+            ">>> Please read the FAQ at https://packpng.com/faq"
+        ),FAQMessage_factory(
+            bot,
+            ["method"],
+            [],
+            channels,
+            ">>> To read up on the method being used to find the seed please visit https://packpng.com/method"
         ),
         
     ]
