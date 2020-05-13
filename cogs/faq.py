@@ -186,7 +186,7 @@ def setup(bot):
         ),FAQMessage_factory(
             bot,
             ["found"],
-            [r"(been|have|you|seed).*found.*(seed|)", r"find.*seed", r"(search|searching|hunt).*(active|still|).*(search|seed|).*(seed|)"],
+            [r"(been|have|you|seed).*found.*seed", r"find.*seed", r"(search|searching|hunt).*(active|still).*(search|seed).*seed"],
             channels,
             ">>> The seed has not been found yet, and it's currently being searched for! You can look at https://packpng.com/roadmap and https://packpng.com/method for more info!"
         ),FAQMessage_factory(
@@ -198,9 +198,27 @@ def setup(bot):
         ),FAQMessage_factory(
             bot,
             ["raiding"],
-            [r"raid", r"destroy.*server", r"ruin.*server"],
+            [r"raid", r"destroy.{,15}server", r"ruin.{,15}server"],
             channels,
             ">>> Hey! Please don't talk about ruining/destroying/raiding servers! This includes Discord, Minecraft and any other type of server. It's against TOS."
+        ),FAQMessage_factory(
+            bot,
+            ["client"],
+            [r"(client|hack).{,15}al.{0,2}"],
+            channels,
+            ">>> SalC1 uses Future Utility Client"
+        ),FAQMessage_factory(
+            bot,
+            ["faq"],
+            [],
+            channels,
+            ">>> Please read the FAQ at https://packpng.com/faq"
+        ),FAQMessage_factory(
+            bot,
+            ["method"],
+            [],
+            channels,
+            ">>> To read up on the method being used to find the seed please visit https://packpng.com/method"
         ),
         
     ]
