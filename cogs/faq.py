@@ -150,7 +150,7 @@ def setup(bot):
             ["ihelp", ],
             [r"(?:(?:can|may).?i.?help)", r"(do.?to.?help)"],
             channels,
-            ">>> Hey, it looks like want to help! If you have reverse-engineering or coding experience head to <#666758275504537604>, otherwise you can help a recreation project in <#666813360867770388>"
+            ">>> Hey, it looks like want to help! If you have reverse-engineering or coding experience head to <#666758275504537604>, however before that, make sure to have thoroughly read <https://packpng.com/method>! For more info on ***how*** to help, visit <https://pastebin.com/UV5feUUW>!"
         ),
         FAQMessage_factory(
             bot,
