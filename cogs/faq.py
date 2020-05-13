@@ -150,7 +150,7 @@ def setup(bot):
             ["ihelp", ],
             [r"(?:(?:can|may).?i.?help)", r"(do.?to.?help)"],
             channels,
-            ">>> Hey, it looks like want to help! If you have reverse-engineering or coding experience head to <#666758275504537604>, otherwise you can help a recreation project in <#666813360867770388>"
+            ">>> Hey, it looks like want to help! If you have reverse-engineering or coding experience head to <#666758275504537604>, however before that, make sure to have thoroughly read <https://packpng.com/method>! For more info on ***how*** to help, visit <https://pastebin.com/UV5feUUW>!"
         ),
         FAQMessage_factory(
             bot,
@@ -186,7 +186,7 @@ def setup(bot):
         ),FAQMessage_factory(
             bot,
             ["found"],
-            [r"(been|have|you|seed).*found.*(seed|)", r"find.*seed", r"(search|searching|hunt).*(active|still|).*(search|seed|).*(seed|)"],
+            [r"(been|have|you|seed).*found.*seed", r"find.*seed", r"(search|searching|hunt).*(active|still).*(search|seed).*seed"],
             channels,
             ">>> The seed has not been found yet, and it's currently being searched for! You can look at https://packpng.com/roadmap and https://packpng.com/method for more info!"
         ),FAQMessage_factory(
@@ -198,9 +198,15 @@ def setup(bot):
         ),FAQMessage_factory(
             bot,
             ["raiding"],
-            [r"raid", r"destroy.*server", r"ruin.*server"],
+            [r"raid", r"destroy.{,15}server", r"ruin.{,15}server"],
             channels,
             ">>> Hey! Please don't talk about ruining/destroying/raiding servers! This includes Discord, Minecraft and any other type of server. It's against TOS."
+        ),FAQMessage_factory(
+            bot,
+            ["client"],
+            [r"(client|hack).{,15}al.{0,2}"],
+            channels,
+            ">>> SalC1 uses Future Utility Client"
         ),
         
     ]
