@@ -14,7 +14,10 @@ class TosCommand:
 
     async def __call__(self, ctx):
         embed = discord.Embed(title=self.name, description=self.content)
-        await ctx.send(embed=embed)
+        if ctx.author.has_any_role("Member"):
+            await ctx.send(embed=embed, delete_after=30)
+        else:
+            await ctx.send(embed=embed)
 
 
 class Tos(commands.Cog):
