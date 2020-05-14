@@ -62,7 +62,7 @@ def FAQMessage_factory(bot, names, regexes, channel_whitelist, message, is_persi
             self.bot = bot
             self.names = names
             self.command = commands.command(names[0], aliases=names[1:])(
-                self.command_method)  # create the command to be later added to the bot
+                self.command_method)  # create the command to be later added to the bot TODO: move to on_ready to fix help message and cog specific command?
             self.message = message
             self.regexes = [re.compile(reg) for reg in regexes]
             self.channel_whitelist = channel_whitelist

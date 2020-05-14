@@ -14,6 +14,7 @@ class ServerStatus(commands.Cog):
     @commands.cooldown(1, 20, type=commands.BucketType.channel)
     @commands.has_any_role("Member", "Private Chat Access", "OG Role That Has No Purpose", "Moderator", "Administrator")
     async def server(self, ctx):
+        """ Get status for the server associated with the channel the command is run in."""
         await ctx.message.delete()
         server = self.channel_server_mapping.get(ctx.channel.id)
         if server:
