@@ -39,7 +39,7 @@ async def help(self,ctx,*cog):
                             found = True
                 if not found:
                     """Reminds you if that cog doesn't exist."""
-                    halp = discord.Embed(title="Error!",description="How do you even use \""'+cog[0]+"\"?",color=discord.Color.red())
+                    halp = discord.Embed(title="Error!",description="How do you even use \""+cog[0]+"\"?",color=discord.Color.red())
                 else:
                     await ctx.message.add_reaction(emoji='✉')
                 await ctx.message.author.send('',embed=halp)
