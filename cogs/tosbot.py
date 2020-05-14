@@ -6,18 +6,22 @@ from discord.utils import get
 import logging
 logger = logging.getLogger('salc1bot')
 
+termtypes = {
+    "warn":"The following is banned by Discord's community guidelines and may result in account termination: ",
+    "termination":"The following is banned by Discord's community guidelines and will result in immediate account deletion by Discord: ",
+    "none":"",
+    "nouse":"By agreeing to Discord's ToS, you agree not to use Discord in order to: "
+}
 
 class TosCommand:
-    def __init__(self, name, content):
+    def __init__(self, name, content, typ):
         self.name = name
-        self.content = f"The following is against the Discord Community Guidelines and may result in account termination: '{content}'"
+        self.typ = termtypes[typ]
+        self.content = f"{self.typ} {content}"
 
     async def __call__(self, ctx):
         embed = discord.Embed(title=self.name, description=self.content)
-        if ctx.author.has_any_role("Member"):
-            await ctx.send(embed=embed, delete_after=30)
-        else:
-            await ctx.send(embed=embed)
+        await ctx.send(embed=embed)
 
 
 class Tos(commands.Cog):
@@ -26,9 +30,16 @@ class Tos(commands.Cog):
         with open("data/dgl.json") as f:
             self.json_data = json.load(f)
         for item in self.json_data:
-            command = TosCommand(item["names"][0], item["content"])
+            command = TosCommand(item["names"][0], item["content"], item["info"])
             print(command.name, command.content)
             self.dgl.command(item["names"][0], aliases=item["names"][1:])(command.__call__)
+
+        with open("data/tos.json") as f:
+            self.json_data = json.load(f)
+        for item in self.json_data:
+            command = TosCommand(item["names"][0], item["content"], item["info"])
+            print(command.name, command.content)
+            self.tos.command(item["names"][0], aliases=item["names"][1:])(command.__call__)
 
     @commands.group(name="dgl")
     @commands.has_any_role("Member", "Private Chat Access", "OG Role That Has No Purpose", "Moderator", "Administrator")
@@ -37,7 +48,17 @@ class Tos(commands.Cog):
             embed = discord.Embed(title="Discord Guidelines Commands")
             for command in self.dgl.commands:
                 embed.add_field(
-                    name=command.name, value=f"Aliases: {', '.join(command.aliases)}", inline=False)
+                    name=command.name, value=f"Aliases: {', '.join(command.aliases)}", inline=True)
+            await ctx.channel.send(embed=embed)
+
+    @commands.group(name="tos")
+    @commands.has_any_role("Member", "Private Chat Access", "OG Role That Has No Purpose", "Moderator", "Administrator")
+    async def tos(self, ctx):
+        if ctx.invoked_subcommand is None:
+            embed = discord.Embed(title="Discord ToS Commands")
+            for command in self.tos.commands:
+                embed.add_field(
+                    name=command.name, value=f"Aliases: {', '.join(command.aliases)}", inline=True)
             await ctx.channel.send(embed=embed)
 
 
