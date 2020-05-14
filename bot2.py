@@ -27,6 +27,7 @@ extensions = [
     "cogs.serverstatus",
     "cogs.badwords",
     "cogs.member_management",
+    "cogs.tosbot",
     "salbot-secrets.autorankup"
 ]
 
