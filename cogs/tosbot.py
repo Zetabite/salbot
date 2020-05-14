@@ -17,10 +17,10 @@ class TosCommand:
     def __init__(self, name, content, typ):
         self.name = name
         self.typ = termtypes[typ]
-        self.content = f"{self.typ} {content}"
+        self.content = f"{content}"
 
     async def __call__(self, ctx):
-        embed = discord.Embed(title=self.name, description=self.content)
+        embed = discord.Embed(title=self.typ, description=self.content)
         await ctx.send(embed=embed)
 
 
