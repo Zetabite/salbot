@@ -2,49 +2,89 @@ from discord.ext import commands
 import logging
 import discord
 
+# COPIED FROM ANOTHER BOT, DEFINITELY DOESNT WORK AND NEEDS LOADS OF FIXES
+
 @commands.command(pass_context=True)
 @commands.has_any_role("Member", "Private Chat Access", "OG Role That Has No Purpose", "Moderator", "Administrator")
-async def help(self,ctx,*cog):
-    """Gets all cogs and commands of mine."""
-    try:
-        if not cog:
-            halp=discord.Embed(title="Cog Listing and Uncatergorized Commands",
-                               description="Use `!help *cog*` to find out more about them!\n(BTW, the Cog Name Must Be in Title Case, Just Like this Sentence.)")
-            cogs_desc = ''
-            for x in self.bot.cogs:
-                cogs_desc += ('{} - {}'.format(x,self.bot.cogs[x].__doc__)+'\n')
-            halp.add_field(name='Cogs',value=cogs_desc[0:len(cogs_desc)-1],inline=False)
-            cmds_desc = ''
-            for y in self.bot.walk_commands():
-                if not y.cog_name and not y.hidden:
-                    cmds_desc += ('{} - {}'.format(y.name,y.help)+'\n')
-            halp.add_field(name="Uncatergorized Commands",value=cmds_desc[0:len(cmds_desc)-1],inline=False)
-            await ctx.message.add_reaction(emoji='✉')
-            await ctx.message.author.send('',embed=halp)
+async def help(self, ctx, *, command_or_category: Optional[str] = None):
+    """See the help menu."""
+    if command_or_category is None:
+        embed = ctx.embed(
+            title="Help",
+            description="Help for salbot")
+
+        commanded_cogs = [
+            cog for cog in self.bot.cogs if len(self.bot.cogs[cog].get_commands()) > 0]
+        
+        for name in commanded_cogs:
+            cog = self.bot.cogs[name]
+            if len(cog.get_commands()) > 0:
+                name = cog.qualified_name
+                strings = []
+                for cmd in cog.get_commands():
+                    if await cmd.can_run(ctx):
+                        strings.append(f"`{cmd.name}`")
+
+                if len(strings) == 0:
+                    break
+
+                value = ", ".join(strings)
+                embed.add_field(name=name, value=value)
+        
+        embed.set_footer(text="support.help.footer")
+    else:
+        cmd = self.bot.get_command(command_or_category)
+        
+        if cmd is not None:
+            await cmd.can_run(ctx)
+            
+            embed = ctx.embed(
+                title="support.help.viewing", command=self.bot.command_prefix + cmd.qualified_name))
+
+            embed.add_field(name="support.help.usage", value=f"{self.bot.command_prefix}{cmd.qualified_name} {cmd.signature}".strip(), inline=False)
+
+            if len(cmd.aliases) > 0:
+                embed.add_field(name="support.help.aliases", value=", ".join(cmd.aliases), inline=False)
+
+            if hasattr(cmd, 'commands'):
+                embed.add_field(name="support.help.subcommands", value=", ".join(scmd.name for scmd in cmd.commands), inline=False)
+
+            if hasattr(cmd, 'required_permissions'):
+                embed.add_field(
+                    name="support.help.permissions",
+                    value=", ".join("permission." + Permission.LABELS[perm])
+                                    for perm in cmd.required_permissions))
+
+            try:
+                help = cmd.qualified_name.replace(' ', '.') + ".help_text"
+                assert help != cmd.qualified_name.replace(' ', '.') + ".help_text"
+            except AssertionError:
+                help = "support.help.help.not_found"
+            
+            embed.add_field(name="support.help.help", value=help, inline=False)
+
+            try:
+                example = cmd.qualified_name.replace(' ', '.') + ".example_text"
+                assert example != cmd.qualified_name.replace(' ', '.') + ".example_text"
+            except AssertionError:
+                example = "support.help.example.not_found"
+            
+            embed.add_field(name="support.help.example", value=example, inline=False)
+
+            embed.set_footer(text="support.help.arguments")
         else:
-            """Helps me remind you if you pass too many args."""
-            if len(cog) > 1:
-                halp = discord.Embed(title="Error!",description="That is way too many cogs!",color=discord.Color.red())
-                await ctx.message.author.send('',embed=halp)
+            cog = self.bot.get_cog(command_or_category)
+            if cog is not None:
+                embed = ctx.embed(
+                    title=cog.qualified_name,
+                    description="support.help.viewing", command=cog.qualified_name))
+
+                embed.add_field(name="support.help.commands", value=", ".join(cmd.name for cmd in cog.get_commands()), inline=False)
             else:
-                """Command listing within a cog."""
-                found = False
-                for x in self.bot.cogs:
-                    for y in cog:
-                        if x == y:
-                            halp=discord.Embed(title=cog[0]+" Command Listing",description=self.bot.cogs[cog[0]].__doc__)
-                            for c in self.bot.get_cog(y).get_commands():
-                                if not c.hidden:
-                                    halp.add_field(name=c.name,value=c.help,inline=False)
-                            found = True
-                if not found:
-                    """Reminds you if that cog doesn't exist."""
-                    halp = discord.Embed(title="Error!",description="How do you even use \""+cog[0]+"\"?",color=discord.Color.red())
-                else:
-                    await ctx.message.add_reaction(emoji='✉')
-                await ctx.message.author.send('',embed=halp)
-    except:
-        await ctx.send("Excuse me, I can't send embeds.")
+                embed = ctx.error("support.help.not_found")
+
+    await embed.send()
+
         
 def setup(bot):
     bot.add_command(help)
