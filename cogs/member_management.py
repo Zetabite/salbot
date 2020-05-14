@@ -19,6 +19,7 @@ class MemberManagement(commands.Cog):
     @commands.command()
     @commands.has_any_role("Moderator","Private Chat Access","Administrator")
     async def addmember(self, ctx, member : discord.Member = None):
+        """ Gives someone the member role"""
         #await ctx.message.delete()
         role = get(member.guild.roles, name="Member")
         await member.add_roles(role)
@@ -29,6 +30,7 @@ class MemberManagement(commands.Cog):
     @commands.command()
     @commands.has_any_role("Moderator","Private Chat Access","Administrator")
     async def removemember(self, ctx, member : discord.Member = None):
+        """ Removes the member role from someone """
         #await ctx.message.delete()
         role = get(member.guild.roles, name="Member")
         await member.remove_roles(role)

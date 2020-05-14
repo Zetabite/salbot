@@ -27,7 +27,7 @@ extensions = [
     "cogs.serverstatus",
     "cogs.badwords",
     "cogs.member_management",
-    "cogs.custom_help",
+    "cogs.tosbot",
     "salbot-secrets.autorankup"
 ]
 
@@ -45,6 +45,7 @@ async def on_ready():
 @client.command()
 @commands.has_any_role("Moderator", "Administrator")
 async def reload(ctx):
+    """ Reload all extensions """
     for exten in extensions:
         client.reload_extension(exten)
         logger.info(f"Reloaded extension: {exten}")

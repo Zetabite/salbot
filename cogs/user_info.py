@@ -37,6 +37,7 @@ def create_embed(ctx, user):
     return em
 
 class Userinfo(commands.Cog):
+    """ Get info for user"""
     def __init__(self, bot):
         self.bot = bot
 
