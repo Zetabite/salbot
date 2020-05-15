@@ -1,0 +1,37 @@
+[
+    {
+        "names":["harass", "ridicule"],
+        "info":"nouse",
+        "content":"defame, libel, ridicule, mock, stalk, threaten, harass, intimidate or abuse anyone."
+    },
+    {
+        "names":["fraud", "illegal"],
+        "info":"nouse",
+        "content":"engage in conduct that is fraudulent or illegal or otherwise harmful to Discord or any other user."
+    },
+    {
+        "names":["virus", "trojan"],
+        "info":"nouse",
+        "content":"upload or transmit (or attempt to upload or transmit) files that contain viruses, Trojan horses, worms, time bombs, cancelbots, corrupted files or data, or any other similar software or programs or engage in any other activity that may damage the operation of the Service or other users' computers."
+    },
+    {
+        "names":["property", "trademark"],
+        "info":"nouse",
+        "content":"violate the contractual, personal, intellectual property or other rights of any party including using, uploading, transmitting, distributing, or otherwise making available any information made available through the Service in any manner that infringes any copyright, trademark, patent, trade secret, or other right of any party (including rights of privacy or publicity)."
+    },
+    {
+        "names":["passwords", "password"],
+        "info":"nouse",
+        "content":"attempt to obtain passwords or other private information from other members."
+    },
+    {
+        "names":["auto", "macro"],
+        "info":"nouse",
+        "content":"develop, distribute, or publicly inform other members of \"auto\" software programs, \"macro\" software programs or other \"cheat utility\" software program or applications in violation of the applicable license agreements."
+    },
+    {
+        "names":["exploit", "hacks", "cheat", "dupe", "crack"],
+        "info":"nouse",
+        "content":"exploit, distribute or publicly inform other members of any game error, miscue or bug which gives an unintended advantage; violate any applicable laws or regulations; or promote or encourage illegal activity including, but not limited to, hacking, cracking or distribution of counterfeit software, compromised accounts, or cheats or hacks for the Service."
+    }
+]
