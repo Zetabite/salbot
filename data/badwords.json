@@ -4,5 +4,5 @@
     "pornhub.com",
     "zoom.us",
     "discord.gg",
-    "d[ .]?u[ .]?p[ .]?[e3]"
+    "(?<!tos )(?:d[ .]?u[ .]?p[ .]?(?:[e3]|ing))"
 ]
