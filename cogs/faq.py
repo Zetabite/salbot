@@ -228,7 +228,7 @@ def setup(bot):
         ),FAQMessage_factory(
             bot,
             ["salserver"],
-            [r"salc?1? (?:anarchy|server)"],
+            [r"salc?1?.?.?.?.?(?:anarchy|server)"],
             channels,
             ">>> The SalC1 anarchy server is now closed, the chat can be found under the public archive.",
             is_persistent=True
