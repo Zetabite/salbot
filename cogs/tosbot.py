@@ -20,8 +20,11 @@ class TosCommand:
         self.content = f"{content}"
 
     async def __call__(self, ctx):
+        delete_after = None
+        if ctx.author.top_role.name == "Member":
+            delete_after = 30
         embed = discord.Embed(title=self.typ, description=self.content)
-        await ctx.send(embed=embed)
+        await ctx.send(embed=embed, delete_after=delete_after)
 
 
 class Tos(commands.Cog):
