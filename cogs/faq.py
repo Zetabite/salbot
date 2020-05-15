@@ -225,6 +225,13 @@ def setup(bot):
             channels,
             ">>> To read up on the method being used to find the seed please visit https://packpng.com/method",
             is_persistent=True
+        ),FAQMessage_factory(
+            bot,
+            ["salserver"],
+            [r"salc?1? (?:anarchy|server)"],
+            channels,
+            ">>> The SalC1 anarchy server is now closed, the chat can be found under the public archive.",
+            is_persistent=True
         ),
         
     ]
