@@ -208,7 +208,7 @@ def setup(bot):
         ),FAQMessage_factory(
             bot,
             ["client"],
-            [r"(?:client|hack).{,15}al.{0,2}"],
+            [r"(?:client|hack).{,15}[sS]al.{0,2}"],
             channels,
             ">>> SalC1 uses Future Utility Client"
         ),FAQMessage_factory(
