@@ -232,6 +232,13 @@ def setup(bot):
             channels,
             ">>> The SalC1 anarchy server is now closed, the chat can be found under the public archive.",
             is_persistent=True
+        ),FAQMessage_factory(
+            bot,
+            ["salspack"],
+            [],
+            channels,
+            ">>> SalC1's texture pack can be sound at https://salc1.com/downloads.html",
+            is_persistent=False
         ),
         
     ]
