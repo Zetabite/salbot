@@ -234,7 +234,7 @@ def setup(bot):
             is_persistent=True
         ),FAQMessage_factory(
             bot,
-            ["salspack"],
+            ["salpack"],
             [],
             channels,
             ">>> SalC1's texture pack can be sound at https://salc1.com/downloads.html",
