@@ -11,7 +11,7 @@ class CommandErrorHandler(commands.Cog):
     def __init__(self, bot, logger):
         self.bot = bot
         self.__logger = logger
-    
+
     @commands.Cog.listener()
     async def on_command_error(self, ctx, error):
         """The event triggered when an error is raised while invoking a command.
@@ -20,10 +20,10 @@ class CommandErrorHandler(commands.Cog):
 
         if hasattr(ctx.command, 'on_error'):
             return
-        
+
         ignored = (commands.CommandNotFound, commands.UserInputError)
         error = getattr(error, 'original', error)
-        
+
         if isinstance(error, ignored):
             return
 
@@ -36,14 +36,13 @@ class CommandErrorHandler(commands.Cog):
             except:
                 pass
 
-            
         self.__logger.error(f"Error in comand {ctx.command.qualified_name}", exc_info=error)
 
 def setup(bot):
     logging.shutdown()
     logger = logging.getLogger('salc1bot')
     logger.handlers = []
-    
+
     class DiscordLogger(logging.Handler):
         def __init__(self, channel):
             logging.Handler.__init__(self)
@@ -67,7 +66,7 @@ def setup(bot):
 
         def filter(self, record):
             return not record.name.endswith(self.__sublogger)
-    
+
     formatter = logging.Formatter(
         'PID %(process)s: %(asctime)s - %(levelname)s %(filename)s:%(lineno)d - %(message)s')
 
@@ -87,13 +86,13 @@ def setup(bot):
     bot_log.addFilter(LevelFilter(logging.INFO))
     bot_log.addFilter(SubloggerFilter("automated"))
     logger.addHandler(bot_log)
-    
+
     # error logger
     bot_errors = DiscordLogger(bot_errors_id)
     bot_errors.setLevel(logging.ERROR)
     bot_errors.setFormatter(formatter)
     logger.addHandler(bot_errors)
-    
+
     # for quickly creating child loggers
     def create_child_logger(name, channel, level, formatting="%(asctime)s - %(message)s", parent_logger=logger):
         child_logger = parent_logger.getChild(name)
