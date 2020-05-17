@@ -208,7 +208,7 @@ def setup(bot):
         ),FAQMessage_factory(
             bot,
             ["client"],
-            [r"(?:client|hack).{,15}al.{0,2}"],
+            [r"(?:client|hack).{,15}[sS]al.{0,2}"],
             channels,
             ">>> SalC1 uses Future Utility Client"
         ),FAQMessage_factory(
@@ -225,6 +225,20 @@ def setup(bot):
             channels,
             ">>> To read up on the method being used to find the seed please visit https://packpng.com/method",
             is_persistent=True
+        ),FAQMessage_factory(
+            bot,
+            ["salserver"],
+            [r"salc?1?.?.?.?.?(?:anarchy|server)"],
+            channels,
+            ">>> The SalC1 anarchy server is now closed, the chat can be found under the public archive.",
+            is_persistent=True
+        ),FAQMessage_factory(
+            bot,
+            ["salspack"],
+            [],
+            channels,
+            ">>> SalC1's texture pack can be sound at https://salc1.com/downloads.html",
+            is_persistent=False
         ),
         
     ]

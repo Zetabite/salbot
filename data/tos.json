@@ -30,8 +30,13 @@
         "content":"develop, distribute, or publicly inform other members of \"auto\" software programs, \"macro\" software programs or other \"cheat utility\" software program or applications in violation of the applicable license agreements."
     },
     {
-        "names":["exploit", "hacks", "cheat", "dupe", "crack"],
+        "names":["exploit", "hacks", "cheat", "dupe", "crack", "hack"],
         "info":"nouse",
         "content":"exploit, distribute or publicly inform other members of any game error, miscue or bug which gives an unintended advantage; violate any applicable laws or regulations; or promote or encourage illegal activity including, but not limited to, hacking, cracking or distribution of counterfeit software, compromised accounts, or cheats or hacks for the Service."
+    },
+    {
+        "names":["age", "under13"],
+        "info":"none",
+        "content":"By using or accessing the Discord application (the “App”) or the website located at https://discord.com (the \"Site\"), which are collectively referred to as the “Service,” you agree (i) that you are 13 years of age and the minimum age of digital consent in your country, (ii) if you are the age of majority in your jurisdiction or over, that you have read, understood, and accept to be bound by the Terms, and (iii) if you are between 13 (or the minimum age of digital consent, as applicable) and the age of majority in your jurisdiction, that your legal guardian has reviewed and agrees to these Terms."
     }
 ]
