@@ -28,7 +28,7 @@ class Badwords(commands.Cog):
         if isinstance(message.author, discord.User) or message.author.bot:
             return
 
-        if not self.isExempt(message.author) and any(re.search(pattern, message.content) for pattern in self.badwords):
+        if not self.isExempt(message.author) and any(re.search(pattern, message.content.lower()) for pattern in self.badwords):
             # Remove the message which triggered the bot
             await message.delete()
             await message.author.send("There are some words discord doesn't like, we have to filter them out.")
