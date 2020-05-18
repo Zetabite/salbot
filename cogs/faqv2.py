@@ -26,7 +26,7 @@ class FaqMessage:
 
     async def __call__(self, ctx):
         delete_after = None
-        if ctx.author.top_role.name == "Member":
+        if len(ctx.author.roles) <= 1:
             delete_after = 30
         await ctx.send(self.content, delete_after=delete_after)
 
