@@ -6,6 +6,7 @@ from discord.utils import get
 import logging
 import re
 logger = logging.getLogger('salc1bot')
+automation_logger = logging.getLogger('salc1bot.automated')
 
 g_channels = {
     "channels":[ 660701994549379125, 669119687530905613, 436411303351943188, 548308507636662283],
@@ -60,11 +61,11 @@ class Faq(commands.Cog):
         if ctx.author == self.bot.user:
             return
         content = ctx.content
-        for regex in self.regexs:
-            for item in self.regexs:
-                if item.reg.match(content) and ctx.channel.id in item.channels and len(ctx.author.roles) <= 1:
-                    await ctx.channel.send(item.content)
-                    return
+        for item in self.regexs:
+            if item.reg.match(content) and (ctx.channel.id in item.channels) and len(ctx.author.roles) <= 1:
+                automation_logger.info(f"FAQ {self.names[0]} triggered by user {ctx.author} ({ctx.author.id}) in {ctx.channel.name}")
+                await ctx.channel.send(item.content)
+                return
 
 def setup(bot):
     bot.add_cog(Faq(bot))
