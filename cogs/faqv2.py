@@ -59,7 +59,7 @@ class Faq(commands.Cog):
     async def on_message(self, ctx):
         if ctx.author == self.bot.user:
             return
-        content = ctx.content
+        content = ctx.content.lower()
         for item in self.regexs:
             print(re.search(item.reg, content))
             if re.search(item.reg, content) and (ctx.channel.id in item.channels) and len(ctx.author.roles) <= 1:
