@@ -95,5 +95,10 @@
         "regexs":[],
         "channels":"channels",
         "content":">>> SalC1's texture pack can be sound at https://salc1.com/downloads.html"
+    },{
+        "names":["packpng"],
+        "regexs":[],
+        "channels":"packchannels",
+        "content":"Please read the faq at https://packpng.com/faq AND the method at https://packpng.com/method before asking questions which already have answers."
     }
 ]
