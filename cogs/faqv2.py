@@ -27,8 +27,7 @@ class FaqMessage:
         delete_after = None
         if ctx.author.top_role.name == "Member":
             delete_after = 30
-        embed = discord.Embed(title=self.typ, description=self.content)
-        await ctx.send(embed=embed, delete_after=delete_after)
+        await ctx.send(self.content, delete_after=delete_after)
 
 
 class Faq(commands.Cog):
