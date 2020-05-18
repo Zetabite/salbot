@@ -8,7 +8,7 @@ import os
 class General(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
-    
+
     #Ping Command (Ex: Pong! 93ms)
     @commands.command()
     @commands.has_any_role("Member", "Private Chat Access", "OG Role That Has No Purpose", "Moderator", "Administrator")
