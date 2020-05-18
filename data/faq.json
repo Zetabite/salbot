@@ -92,8 +92,8 @@
         "content":">>> The SalC1 anarchy server is now closed {please watch https://www.youtube.com/watch?v=ErqC6PXVm9k}, the chat can be found under the public archive."
     },{
         "names":["salpack"],
-        "regexs":[],
+        "regexs":["salc?1?.?.?.?.?{?:texture|pack}"],
         "channels":"channels",
-        "content":">>> SalC1's texture pack can be sound at https://salc1.com/downloads.html"
+        "content":">>> SalC1's texture pack can be found at https://salc1.com/downloads.html"
     }
 ]
