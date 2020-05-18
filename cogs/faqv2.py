@@ -62,7 +62,7 @@ class Faq(commands.Cog):
         content = ctx.content
         for regex in self.regexs:
             for item in self.regexs:
-                if item.reg.match(content) and ctx.channel.id in item.channels:
+                if item.reg.match(content) and ctx.channel.id in item.channels and len(ctx.author.roles) <= 1:
                     await ctx.channel.send(item.content)
                     return
 
