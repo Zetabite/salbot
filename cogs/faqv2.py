@@ -53,7 +53,7 @@ class Faq(commands.Cog):
             for command in self.faq.commands:
                 msg += f"\n+ {command.name}"
             msg += '\n```'
-            await ctx.channel.send(msg)
+            await ctx.channel.send(msg, delete_after=30)
 
     @commands.Cog.listener()
     async def on_message(self, ctx):
