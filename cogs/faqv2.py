@@ -63,7 +63,7 @@ class Faq(commands.Cog):
         for item in self.regexs:
             print(re.search(item.reg, content))
             if re.search(item.reg, content) and (ctx.channel.id in item.channels) and len(ctx.author.roles) <= 1:
-                await ctx.channel.send(item.content)
+                await ctx.channel.send(item.content, delete_after=20)
                 return
 
 def setup(bot):
