@@ -26,5 +26,7 @@ This is a custom, one use discord bot, nothing cool.
 Automaticaly delete:
 - [x] Messages (to prevent spam)
 - [x] Invite Links
-- [x] Words that start with N     
+- [x] Words that start with N
+
+# How to run
 
