@@ -11,7 +11,7 @@ from dotenv import load_dotenv
 from pathlib import Path
 import aiosqlite
 p = Path(".env").resolve()
-if p.exists:
+if p.exists():
     load_dotenv(dotenv_path=p)
 else:
     load_dotenv(dotenv_path="./salbot-secrets/.env")
