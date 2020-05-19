@@ -10,7 +10,11 @@ import logging
 from dotenv import load_dotenv
 from pathlib import Path
 import aiosqlite
-load_dotenv(dotenv_path="./salbot-secrets/.env")
+p = Path(".env").resolve()
+if p.exists:
+    load_dotenv(dotenv_path=p)
+else:
+    load_dotenv(dotenv_path="./salbot-secrets/.env")
 
 logger = logging.getLogger("salc1bot")
 
@@ -29,6 +33,7 @@ extensions = [
     "cogs.member_management",
     "cogs.tosbot",
     "salbot-secrets.autorankup"
+    #"cogs.backup"
 ]
 
 @client.event
