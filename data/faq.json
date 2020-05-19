@@ -89,11 +89,16 @@
         "names":["salserver"],
         "regexs":["salc?1?.?.?.?.?{?:anarchy|server}"],
         "channels":"channels",
-        "content":">>> The SalC1 anarchy server is now closed {please watch https://www.youtube.com/watch?v=ErqC6PXVm9k}, the chat can be found under the public archive."
+        "content":">>> The SalC1 anarchy server is now closed (please watch https://www.youtube.com/watch?v=ErqC6PXVm9k ), the chat can be found under the public archive."
     },{
         "names":["salpack"],
         "regexs":["salc?1?.?.?.?.?{?:texture|pack}"],
         "channels":"channels",
         "content":">>> SalC1's texture pack can be found at https://salc1.com/downloads.html"
+    },{
+        "names":["dupe"],
+        "regexs":["(?<!tos )(?:d[ .]?u[ .]?p[ .]?(?:[e3]|ing))"],
+        "channels":"channels",
+        "content":"Please do not mention duping on servers that do not allow it as it's against Discord's ToS."
     }
 ]
