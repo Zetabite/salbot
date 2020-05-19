@@ -100,5 +100,10 @@
         "regexs":["(?<!tos )(?:d[ .]?u[ .]?p[ .]?(?:[e3]|ing))"],
         "channels":"channels",
         "content":"Please do not mention duping on servers that do not allow it as it's against Discord's ToS."
+    },{
+        "names":["packpng"],
+        "regexs":[],
+        "channels":"packchannels",
+        "content":"Please read the faq at https://packpng.com/faq AND the method at https://packpng.com/method before asking questions which already have answers."
     }
 ]

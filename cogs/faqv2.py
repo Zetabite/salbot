@@ -10,13 +10,14 @@ automation_logger = logging.getLogger('salc1bot.automated')
 
 g_channels = {
     "channels":[660701994549379125, 669119687530905613, 436411303351943188, 548308507636662283],
-    "packchannels":[666575359411748875, 666758275504537604]
+    "packchannels":[666575359411748875, 666758275504537604, 710226813808279615]
 }
 
 class RegExMessagePair:
     def __init__(self, reg, content, channels):
         self.reg = reg
         self.content = content
+        self.ch = channels
         self.channels = g_channels[channels]
 
 class FaqMessage:
@@ -26,10 +27,9 @@ class FaqMessage:
 
     async def __call__(self, ctx):
         delete_after = None
-        if ctx.author.top_role.name == "Member":
+        if len(ctx.author.roles) <= 1:
             delete_after = 30
-        embed = discord.Embed(title=self.typ, description=self.content)
-        await ctx.send(embed=embed, delete_after=delete_after)
+        await ctx.send(self.content, delete_after=delete_after)
 
 
 class Faq(commands.Cog):
@@ -54,17 +54,19 @@ class Faq(commands.Cog):
             for command in self.faq.commands:
                 msg += f"\n+ {command.name}"
             msg += '\n```'
-            await ctx.channel.send(msg)
+            await ctx.channel.send(msg, delete_after=30)
 
     @commands.Cog.listener()
     async def on_message(self, ctx):
         if ctx.author == self.bot.user:
             return
-        content = ctx.content
+        content = ctx.content.lower()
         for item in self.regexs:
-            print(re.search(item.reg, content))
+            #print(re.search(item.reg, content))
             if re.search(item.reg, content) and (ctx.channel.id in item.channels) and len(ctx.author.roles) <= 1:
-                await ctx.channel.send(item.content)
+                await ctx.channel.send(item.content, delete_after=20)
+                if item.ch == "packchannels":
+                    await ctx.add_reaction("\U00002705")
                 return
 
 def setup(bot):
