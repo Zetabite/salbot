@@ -44,7 +44,7 @@ class Tos(commands.Cog):
             print(command.name, command.content)
             self.tos.command(item["names"][0], aliases=item["names"][1:])(command.__call__)
 
-    @commands.group(name="dgl")
+    @commands.group(name="dgl", aliases=["guidelines"])
     @commands.has_any_role("Member", "Private Chat Access", "OG Role That Has No Purpose", "Moderator", "Administrator")
     async def dgl(self, ctx):
         if ctx.invoked_subcommand is None:
@@ -54,7 +54,7 @@ class Tos(commands.Cog):
                     name=command.name, value=f"Aliases: {', '.join(command.aliases)}", inline=True)
             await ctx.channel.send(embed=embed)
 
-    @commands.group(name="tos")
+    @commands.group(name="tos", aliases=["terms"])
     @commands.has_any_role("Member", "Private Chat Access", "OG Role That Has No Purpose", "Moderator", "Administrator")
     async def tos(self, ctx):
         if ctx.invoked_subcommand is None:

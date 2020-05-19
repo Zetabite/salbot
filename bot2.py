@@ -27,7 +27,7 @@ extensions = [
     "cogs.general",
     "cogs.logging",
     "cogs.user_info",
-    "cogs.faq",
+    "cogs.faqv2",
     "cogs.serverstatus",
     "cogs.badwords",
     "cogs.member_management",
@@ -54,7 +54,7 @@ async def reload(ctx):
     for exten in extensions:
         client.reload_extension(exten)
         logger.info(f"Reloaded extension: {exten}")
-    await ctx.send("Reload Succesfull")
+    await ctx.send("Reload Succesful")
 
 @client.event
 async def on_error(event, *args, **kwargs):

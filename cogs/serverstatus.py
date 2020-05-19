@@ -9,7 +9,7 @@ class ServerStatus(commands.Cog):
     def __init__(self, bot, channel_server_mapping):
         self.bot = bot
         self.channel_server_mapping = {channel:MinecraftServer(server) for channel, server in channel_server_mapping.items()}
-    
+
     @commands.command()
     @commands.cooldown(1, 20, type=commands.BucketType.channel)
     @commands.has_any_role("Member", "Private Chat Access", "OG Role That Has No Purpose", "Moderator", "Administrator")

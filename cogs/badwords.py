@@ -12,11 +12,11 @@ class Badwords(commands.Cog):
     def __init__(self, bot, badwords):
         self.bot = bot
         self.badwords = list(map(re.compile, badwords))
-    
+
     async def deluser(self, id):
         await self.bot.sql_conn.execute(f"DELETE FROM messagecount WHERE user_id = {id};")
         logger.debug(f"Deleted database entry for {id}")
-        
+
     def isExempt(self, author: discord.User):
         for role in ["Administrator", "Moderator"]:
             if role in map(str, author.roles):

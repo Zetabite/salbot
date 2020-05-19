@@ -7,7 +7,7 @@ logger = logging.getLogger('salc1bot')
 class MemberManagement(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
-    
+
     @commands.Cog.listener()
     async def on_memeber_join(self, member):
         logger.info(f'{member} ({member.id}) has joined the server.')
@@ -15,7 +15,7 @@ class MemberManagement(commands.Cog):
     @commands.Cog.listener()
     async def on_memeber_remove(self, member):
         logger.info(f'{member} ({member.id}) has left the server.')
-    
+
     @commands.command()
     @commands.has_any_role("Moderator","Private Chat Access","Administrator")
     async def addmember(self, ctx, member : discord.Member = None):
