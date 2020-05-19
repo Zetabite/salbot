@@ -32,6 +32,7 @@ extensions = [
     "cogs.badwords",
     "cogs.member_management",
     "cogs.tosbot",
+    "cogs.autokick_deafened",
     "salbot-secrets.autorankup"
     #"cogs.backup"
 ]
