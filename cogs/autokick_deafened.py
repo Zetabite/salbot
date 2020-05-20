@@ -11,7 +11,7 @@ class Antideafen(commands.Cog):
 
     @commands.Cog.listener()
     async def on_voice_state_update(self, member: discord.User, state_before, state_after):
-        if state_after.self_deaf:
+        if state_after.self_deaf and state_before.channel != None:
             await member.move_to(None, reason="Anti Deafen")
             automation_logger.info(f"Deafen AutoKick triggered by user {member} ({member.id})")
 
