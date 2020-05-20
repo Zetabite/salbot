@@ -38,13 +38,20 @@ extensions = [
     #"cogs.backup"
 ]
 
+def try_load_extension(extension):
+    try:
+        client.load_extension(extension)
+    except Exception as e:
+        logger.exception(f"Error loading Cog: {extension}", exc_info=True)
+    else:
+        logger.info(f"Loaded extension: {extension}")
+
 @client.event
 async def on_ready():
     client.remove_command("help")
     client.sql_conn = await aiosqlite.connect(db_p)
     for exten in extensions:
-        client.load_extension(exten)
-        logger.info(f"Loaded extension: {exten}")
+        try_load_extension(exten)
     await client.change_presence(status=discord.Status.online, activity=discord.Game("Leaking salc\'s base in progress"))
     logger.info(f"{client.user} has connected to Discord!")
 
@@ -54,8 +61,7 @@ async def on_ready():
 async def reload(ctx):
     """ Reload all extensions """
     for exten in extensions:
-        client.reload_extension(exten)
-        logger.info(f"Reloaded extension: {exten}")
+        try_load_extension(exten)
     await ctx.send("Reload Succesful")
 
 @client.event
