@@ -7,7 +7,7 @@
     },
     {
         "names":["seed"],
-        "regexs":["seed.is.?{?!n}", "?:{have|know}.?the.?seed"],
+        "regexs":["seed.is.?{?!n}", "(have|know)?.?the.?seed"],
         "channels":"packchannels",
         "content":">>> Hey, it looks like you mentioned what the seed is! If you actually found the seed, please message a mod. If you're saying this as a joke, please dont :}"
     },
