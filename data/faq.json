@@ -72,7 +72,7 @@
         "content":">>> Hey! Please don't talk about ruining/destroying/raiding servers! This includes Discord, Minecraft and any other type of server. It's against TOS."
     },{
         "names":["client"],
-        "regexs":["(client|hack)?.*al.{0,2}"],
+        "regexs":["(client|hack)?.{,15}*al.{0,2}"],
         "channels":"channels",
         "content":">>> SalC1 uses Future Utility Client"
     },{
