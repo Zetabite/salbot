@@ -39,7 +39,7 @@
         "names":["cracked"],
         "regexs":["cracked", "tlaunche"],
         "channels":"channels",
-        "content":">>> Discussion about cracked accounts or account sharing is STRICTLY forbidden"
+        "content":">>> Discussion about cracked accounts or account sharing is STRICTLY forbidden."
     },{
         "names":["hacked"],
         "regexs":["hack"],
