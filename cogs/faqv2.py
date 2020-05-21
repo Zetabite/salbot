@@ -9,7 +9,7 @@ logger = logging.getLogger('salc1bot')
 automation_logger = logging.getLogger('salc1bot.automated')
 
 g_channels = {
-    "channels":[660701994549379125, 669119687530905613, 436411303351943188, 548308507636662283],
+    "channels":[660701994549379125, 669119687530905613, 436411303351943188, 548308507636662283, 710226813808279615],
     "packchannels":[666575359411748875, 666758275504537604, 710226813808279615]
 }
 
@@ -62,12 +62,15 @@ class Faq(commands.Cog):
             return
         content = ctx.content.lower()
         for item in self.regexs:
-            #print(re.search(item.reg, content))
-            if re.search(item.reg, content) and (ctx.channel.id in item.channels) and len(ctx.author.roles) <= 1:
-                await ctx.channel.send(item.content, delete_after=20)
-                if item.ch == "packchannels":
-                    await ctx.add_reaction("\U00002705")
-                return
+            try:
+                #print(re.search(item.reg, content))
+                if re.search(item.reg, content) and (ctx.channel.id in item.channels) and len(ctx.author.roles) <= 1:
+                    await ctx.channel.send(item.content, delete_after=20)
+                    if item.ch == "packchannels":
+                        await ctx.add_reaction("\U00002705")
+                    return
+            except Exception as e:
+                print(e)
 
 def setup(bot):
     bot.add_cog(Faq(bot))
