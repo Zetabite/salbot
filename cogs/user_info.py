@@ -48,7 +48,7 @@ class Userinfo(commands.Cog):
         if ctx.invoked_subcommand is None:
             if not user:
                 user = ctx.message.author
-            logger.info(f"Userinfo for {user.mention} triggerd by {ctx.message.author.mention}")
+            logger.info(f"Userinfo for {user.mention} triggered by {ctx.message.author.mention}")
             em = create_embed(ctx,user)
             await ctx.send(embed=em)
             await ctx.message.delete()
