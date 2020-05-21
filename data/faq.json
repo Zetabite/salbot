@@ -57,7 +57,7 @@
         "content":">>> Hey! Just so you know the seed was randomly generated and it is NOT a word. Also, please don't say its [insert number seed here] because that seed probably wasn't generated. Want to check generation? Use this nice Algorithm! boolean validSeed{long a}{long b=18218081,c=1L<<48,d=7847617,e={{{{d*{{24667315*{a>>>32}+b*{int}a+67552711}>>32}-b*{{-4824621*{a>>>32}+d*{int}a+d}>>32}}-11}*0xdfe05bcb1365L}%c};return{{{{0x5deece66dl*e+11}%c}>>16}<<32}+{int}{{{0xbb20b4600a69L*e+0x40942de6baL}%c}>>16}==a;}"
     },{
         "names":["found"],
-        "regexs":["{?:been|have|you|seed}.*found.*seed", "find.*seed", "{?:search|searching|hunt}.*{?:active|still}.*{?:search|seed}.*seed"],
+        "regexs":["?:{been|have|you|seed}.*found.*seed", "find.*seed", "{?:search|searching|hunt}.*{?:active|still}.*{?:search|seed}.*seed"],
         "channels":"packchannels",
         "content":">>> The seed has not been found yet, and it's currently being searched for! You can look at https://packpng.com/roadmap and https://packpng.com/method for more info!"
     },{

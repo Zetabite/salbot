@@ -20,5 +20,5 @@ class Antideafen(commands.Cog):
 
 def setup(bot):
     bot.add_cog(Antideafen(bot))
-    
+
     # ^(.*)\] cactus uwu#0523
