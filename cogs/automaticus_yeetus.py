@@ -8,6 +8,7 @@ class Antideafen(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
 
+    #Remove people from vc when deafened f0r 30s
     @commands.Cog.listener()
     async def on_voice_state_update(self, member, state_before, state_after):
         if state_after.channel is None:
@@ -16,9 +17,7 @@ class Antideafen(commands.Cog):
         state_after = member.voice
         if state_after.self_deaf:
             await member.move_to(None, reason="Anti Deafen")
-            automation_logger.info(f"Deafen AutoKick triggered by user {member} ({member.id})")
+            automation_logger.info(f"Automaticus Yeetus TM triggered by user {member} ({member.id})")
 
 def setup(bot):
     bot.add_cog(Antideafen(bot))
-
-    # ^(.*)\] cactus uwu#0523

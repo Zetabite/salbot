@@ -4,42 +4,36 @@
         "regexs":["dream.?s?.?method"],
         "channels":"packchannels",
         "content":">>> Hey, it looks like you mentioned Dream! Unfortunately we cannot use that method because we don't have enough information."
-    },
-    {
+    },{
         "names":["seed"],
-        "regexs":["seed.is.?{?!n}", "?:{have|know}.?the.?seed"],
+        "regexs":["seed.is.?{?!n}", "(have|know)?.?the.?seed"],
         "channels":"packchannels",
         "content":">>> Hey, it looks like you mentioned what the seed is! If you actually found the seed, please message a mod. If you're saying this as a joke, please dont :}"
-    },
-    {
+    },{
         "names":["supercompute", "supercomp", "sc"],
         "regexs":["super.?comput."],
         "channels":"packchannels",
         "content":">>> Hey, it looks like you mentioned a supercomputer! Thankfully `@cactus uwu#0523` is dedicating several supercomputers towards this!"
-    },
-    {
+    },{
         "names":["quantumcompute", "qcomp", "qc"],
         "regexs":["quantum.?comput."],
         "channels":"packchannels",
-        "content":">>> Hey, it looks like you mentioned a quantum computer! Unfortunately this won't help with this problem and we already have enough computing powe"
-    },
-    {
+        "content":">>> Hey, it looks like you mentioned a quantum computer! Unfortunately this won't help with this problem and we already have enough computing power."
+    },{
         "names":["ihelp"],
         "regexs":["(can|may)?.?i.?help", "do.?to.?help"],
         "channels":"packchannels",
         "content":">>> Hey, it looks like want to help! If you have reverse-engineering or coding experience head to <#666758275504537604>, however before that, make sure to have thoroughly read <https://packpng.com/method>! For more info on ***how*** to help, visit <https://pastebin.com/UV5feUUW>!"
-    },
-    {
+    },{
         "names":["notchmessage", "notchmsg", "notch", "built"],
         "regexs":["man.made", "was built"],
         "channels":"packchannels",
         "content":">>> We have a response from notch, so we dont think its built or a custom seed https://i.vgy.me/zOLSYx.png"
-    },
-    {
+    },{
         "names":["cracked"],
         "regexs":["cracked", "tlaunche"],
         "channels":"channels",
-        "content":">>> Discussion about cracked accounts or account sharing is STRICTLY forbidden"
+        "content":">>> Discussion about cracked accounts or account sharing is STRICTLY forbidden."
     },{
         "names":["hacked"],
         "regexs":["hack"],
