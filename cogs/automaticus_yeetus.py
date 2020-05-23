@@ -17,7 +17,7 @@ class Antideafen(commands.Cog):
         state_after = member.voice
         if state_after.self_deaf:
             await member.move_to(None, reason="Anti Deafen")
-            automation_logger.info(f"Deafen AutoKick triggered by user {member} ({member.id})")
+            automation_logger.info(f"Automaticus Yeetus TM triggered by user {member} ({member.id})")
 
 def setup(bot):
     bot.add_cog(Antideafen(bot))
