@@ -44,7 +44,7 @@ where each of the fields are set to the correct value, note that it is possible 
 
 # Functions of the cogs
 
-### autokick_deafened.py
+### automaticus_yeetus.py
 automatically kicks users from a voice channel they're in if they stay deafened for more than 30 seconds
 
 ### backup.py
