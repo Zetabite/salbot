@@ -20,7 +20,7 @@ class Kaktoos(commands.Cog):
 		if isinstance(ctx.channel, discord.channel.DMChannel):
 			return
 		if not self.cactus:
-			self.cactus = self.bot.get_user(297045071457681409)#459235187469975572)
+			self.cactus = self.bot.get_user(459235187469975572)
 		for regex in self.regexes:
 			if regex.search(ctx.content.lower()):
 				await self.cactus.send(f"Alert for regex '{regex}' in channel {ctx.channel.name}")
