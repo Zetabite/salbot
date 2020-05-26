@@ -1,7 +1,8 @@
 from discord.ext import commands
 import discord
 import re
-from time import time
+import logging
+automation_logger = logging.getLogger('salc1bot.automated')
 
 class Kaktoos(commands.Cog):
 	def __init__(self, bot: commands.Bot):
@@ -24,6 +25,7 @@ class Kaktoos(commands.Cog):
 		for regex in self.regexes:
 			if regex.search(ctx.content.lower()):
 				await self.cactus.send(f"Alert for regex '{regex}' in channel {ctx.channel.name}")
+				automation_logger.info(f"[CactusAlert] Alert for regex '{regex}' in channel {ctx.channel.name}")
 				return
 
 	@commands.has_any_role("Administrator", "Moderator")
