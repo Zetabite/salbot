@@ -10,12 +10,12 @@
         "channels":"packchannels",
         "content":">>> Hey, it looks like you mentioned what the seed is! If you actually found the seed, please message a mod. If you're saying this as a joke, please dont :}"
     },{
-        "names":["supercompute", "supercomp", "sc"],
+        "names":["supercomputer", "supercompute", "supercomp", "sc"],
         "regexs":["super.?comput."],
         "channels":"packchannels",
         "content":">>> Hey, it looks like you mentioned a supercomputer! Thankfully `@cactus uwu#0523` is dedicating several supercomputers towards this!"
     },{
-        "names":["quantumcompute", "qcomp", "qc"],
+        "names":["quantumcomputer", "quantumcompute", "qcomp", "qc"],
         "regexs":["quantum.?comput."],
         "channels":"packchannels",
         "content":">>> Hey, it looks like you mentioned a quantum computer! Unfortunately this won't help with this problem and we already have enough computing power."
