@@ -7,25 +7,24 @@ automation_logger = logging.getLogger('salc1bot.automated')
 class Kaktoos(commands.Cog):
 	def __init__(self, bot: commands.Bot):
 		self.bot = bot
-		self.regexes = []
+		self.words = []
 		self.cactus = None
 		self.enabled = True
 		with open('data/kaktoos.txt') as f:
 			for line in f.readlines():
-				self.regexes.append(re.compile(line.strip("\n")))
+				self.words.append(line.strip("\n"))
 
 	@commands.Cog.listener()
 	async def on_message(self, ctx):
-		if not self.enabled:
+		if not self.enabled or ctx.author.id == 459235187469975572:
 			return
 		if isinstance(ctx.channel, discord.channel.DMChannel):
 			return
 		if not self.cactus:
-			self.cactus = self.bot.get_user(459235187469975572)
-		for regex in self.regexes:
-			if regex.search(ctx.content.lower()):
-				await self.cactus.send(f"Alert for regex '{regex}' in channel {ctx.channel.name}")
-				automation_logger.info(f"[CactusAlert] Alert for regex '{regex}' in channel {ctx.channel.name}")
+			self.cactus = self.bot.get_user(297045071457681409)#459235187469975572)
+		for item in self.words:
+			if item in ctx.content.lower():
+				await self.cactus.send(f"Alert for word '{item}' in channel {ctx.channel.name}")
 				return
 
 	@commands.has_any_role("Administrator", "Moderator")
@@ -37,7 +36,7 @@ class Kaktoos(commands.Cog):
 				f.write("\n" + cmd)
 			with open('data/kaktoos.txt') as f:
 				for line in f.readlines():
-					self.regexes.append(re.compile(line.strip("\n")))
+					self.words.append(line.strip("\n"))
 		except Exception as e:
 			print(e)
 
