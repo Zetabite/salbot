@@ -34,6 +34,7 @@ extensions = [
     "cogs.member_management",
     "cogs.tosbot",
     "cogs.automaticus_yeetus",
+    "cogs.maze",
     "salbot-secrets.autorankup"
     #"cogs.backup"
 ]
