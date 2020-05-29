@@ -1,3 +1,5 @@
+https://travis-ci.org/salc1-org/salbot.svg?branch=master
+
 Info
 ------
 This is a custom, one use discord bot, nothing cool.
