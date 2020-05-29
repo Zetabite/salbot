@@ -1,4 +1,4 @@
-[a link] https://travis-ci.org/salc1-org/salbot.svg?branch=master
+(https://travis-ci.org/salc1-org/salbot.svg?branch=master)
 
 Info
 ------
