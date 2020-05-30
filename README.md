@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/salc1-org/salbot.svg?branch=master)](https://travis-ci.org/salc1-org/salbot)
+
 Info
 ------
 This is a custom, one use discord bot, nothing cool.
