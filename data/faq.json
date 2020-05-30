@@ -99,5 +99,10 @@
         "regexs":[],
         "channels":"packchannels",
         "content":"Please read the faq at https://packpng.com/faq AND the method at https://packpng.com/method before asking questions which already have answers."
+    },{
+        "names":["seedfinding"],
+        "regexs":[],
+        "channels":"packchannels",
+        "content":"Here's a video by Matthew Bolan explaining LCGs in relation to Minecraft seedfinding: https://www.youtube.com/watch?v=XVrR1WImOh8"
     }
 ]
