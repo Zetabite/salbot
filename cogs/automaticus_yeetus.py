@@ -15,7 +15,7 @@ class Antideafen(commands.Cog):
             return
         await asyncio.sleep(30)
         state_after = member.voice
-        if state_after.self_deaf:
+        if not state_after == None and state_after.self_deaf:
             await member.move_to(None, reason="Anti Deafen")
             automation_logger.info(f"Automaticus Yeetus TM triggered by user {member} ({member.id})")
 
