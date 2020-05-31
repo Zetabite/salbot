@@ -2,8 +2,22 @@ from discord.ext import commands
 import discord
 import random
 
+
+class Random:
+    def __init__(self, seed=6768668376353):
+        self.seed = seed
+        self.PSeed = seed
+
+    def next(self):
+        self.seed = (self.PSeed * self.seed + 11) % 2**48
+        return(self.seed)
+
+    def randint(self, max):
+        return self.next() % 100
+
 class Maze(commands.Cog):
 	def __init__(self, bot):
+		self.rng = Random()
 		self.bot = bot
 		self.enabled = False
 		self.mid = [373946864531144726]
@@ -11,7 +25,7 @@ class Maze(commands.Cog):
 	@commands.Cog.listener()
 	async def on_message(self, ctx):
 		if ctx.author.id in self.mid and self.enabled:
-			if random.randint(0,100) == 5:
+			if self.rng.randint(100) == 43:
 				await ctx.channel.send(f"Fuck you {ctx.author.mention} >:)")
 
 	@commands.has_any_role("Moderator", "Administrator", "Private Chat Access")
