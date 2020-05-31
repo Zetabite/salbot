@@ -26,7 +26,7 @@ class Maze(commands.Cog):
 	async def on_message(self, ctx):
 		if ctx.author.id in self.mid and self.enabled:
 			if self.rng.randint(100) == 43:
-				await ctx.channel.send(f"Fuck you {ctx.author.mention} >:)")
+				await ctx.channel.send(f"Fuck you {ctx.author.mention}")
 
 	@commands.has_any_role("Moderator", "Administrator", "Private Chat Access")
 	@commands.command(name='togglemaze')
