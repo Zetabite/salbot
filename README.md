@@ -21,7 +21,7 @@ This is a custom, one use discord bot, nothing cool.
 - [x] Add Cooldowns to commands
 - [x] Profile Information Command
 - [x] Auto update from git commits
-- [] Make channels in faq use category IDs not channel IDs
+- [ ] Make channels in faq use category IDs not channel IDs
 
 
 **Long term Todo**
