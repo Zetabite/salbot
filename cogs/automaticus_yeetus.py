@@ -14,7 +14,7 @@ class Antideafen(commands.Cog):
     async def on_voice_state_update(self, member, state_before, state_after):
         if state_after.channel is None or member.id in self.exempt:
             return
-        await asyncio.sleep(30)
+        await asyncio.sleep(600)
         state_after = member.voice
         if not state_after == None and state_after.self_deaf:
             await member.move_to(None, reason="Anti Deafen")
