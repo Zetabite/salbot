@@ -9,10 +9,10 @@ class Antideafen(commands.Cog):
         self.bot = bot
         self.exempt = [264898221665419264, 297045071457681409]
 
-    #Remove people from vc when deafened f0r 30s
+    #Remove people from vc when deafened for 10 minutes
     @commands.Cog.listener()
     async def on_voice_state_update(self, member, state_before, state_after):
-        if state_after.channel is None or member.id in self.exempt:
+        if state_after.channel is None or member.id in self.exempt: #Return if the user is in the exempt users list
             return
         await asyncio.sleep(600)
         state_after = member.voice
