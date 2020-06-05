@@ -35,6 +35,11 @@
         "channels":"channels",
         "content":">>> Discussion about cracked accounts or account sharing is STRICTLY forbidden."
     },{
+        "names":["salhack"],
+        "regexs":["salhack"],
+        "channels":"channels",
+        "content":">>> Salhack is not affiliated with Sal or this Discord, it's source is open and available on GitHub along with release downloads."
+    },{
         "names":["hacked"],
         "regexs":["hack"],
         "channels":"channels",
