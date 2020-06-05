@@ -17,7 +17,7 @@ class CactusHeight(commands.Cog):
             kekw=line.strip("b'")
             kekw = re.sub("\D", "", kekw)
             await ctx.channel.send(u"\uE308"+"That boi stacked " + str(kekw) + " blocks tall!" + u"\uE308")
-            await ctx.channel.send("Put in box " + str(int(int(stacccyboi)/100000000000 + 2))+" on the spreadsheet(If it's over 10 tall)!")
+            await ctx.channel.send("Put in box " + str(int (stacccyboi) // 100000000000 + 2)+" on the spreadsheet(If it's over 10 tall)!")
 
 def setup(bot):
     bot.add_cog(CactusHeight(bot))
