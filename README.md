@@ -82,3 +82,7 @@ shows user info such as account creation date, server join date, voice channels,
 
 ### maze.py
 Randomly says 'fuck you' to maze - because yes tbh
+
+### cactusheight.py
+Give it a chunk seed and it gives cactus height - simple as that
+Credit to KaptainWutax for the code that actually checks cactus height
