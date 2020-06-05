@@ -7,7 +7,7 @@ class CactusHeight(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
 
-    @commands.command(name="cactusheight")
+    @commands.command(name="cactusheight", aliases=["ch"])
     @commands.has_any_role("Administrator", "Moderator", "Private Chat Access")
     async def cactusheight(self, ctx, stacccyboi):
         args = ['cactusseedjarfile.jar', stacccyboi]
