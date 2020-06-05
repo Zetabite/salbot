@@ -75,7 +75,10 @@ allows for PCA and above to use !addmember and !removemember to add and remove m
 lets you use !server to see the status of 2b2t.org
 
 ### tosbot.py
-adds !tos and !dgl commands from tos.json / dgl.json
+adds !tos and !dgl commands from tos.json and dgl.json
 
 ### user_info.py
 shows user info such as account creation date, server join date, voice channels, user id, etc.
+
+### maze.py
+Randomly says 'fuck you' to maze - because yes tbh
