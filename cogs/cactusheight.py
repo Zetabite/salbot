@@ -2,6 +2,7 @@ import discord
 from discord.ext import commands
 import time
 import math
+import gspread
 
 class Random(object):
     """
@@ -235,7 +236,31 @@ class CactusHeight(commands.Cog):
     async def cactusheight(self, ctx, stacccyboi):
         kekw = generate(int(stacccyboi))
         await ctx.channel.send(":cactus:That boi stacked " + str(kekw) + " blocks tall!:cactus:")
-        await ctx.channel.send("Put in box " + str(int (stacccyboi) // 100000000000 + 2)+" on the spreadsheet(If it's over 10 tall)!")
+        row = int (stacccyboi) // 100000000000 + 2
+        if(kekw>=10):
+            await ctx.channel.send("Put in box " + str(row)+" on the spreadsheet!")
+        gc = gspread.service_account(filename='googlekeykaktoos.json')
+        sh = gc.open_by_key('1PSz9y2l9Oo4-uoqrf7wB4Gtd_Z8CRAJ34SCrU9aj59E')
+        val = worksheet.cell(row, 2).value
+        if val is not None and val is not '':
+            worksheet.update(row, 2, stacccyboi)
+        else:
+            worksheet.update(row, 2, (str(val) + ", " + str(stacccyboi)))
+        
+    @commands.command(name="markdone", aliases=["md"])
+    @commands.has_any_role("Administrator", "Moderator", "Private Chat Access")
+    async def markdone(self, ctx, markthatshit):
+        gc = gspread.service_account(filename='googlekeykaktoos.json')
+        sh = gc.open_by_key('1PSz9y2l9Oo4-uoqrf7wB4Gtd_Z8CRAJ34SCrU9aj59E')
+        markthatshit = int(int(markthatshit)// 100000000000 + 2)
+        fucc = "A{0}:B1".format(markthatshit)
+        worksheet.format(str(fucc), {  
+            "backgroundColor": {
+                "red": 0.0,
+                "green": 1.0,
+                "blue": 0.0
+            }
+        })
 
 def setup(bot):
     bot.add_cog(CactusHeight(bot))
