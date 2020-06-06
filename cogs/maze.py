@@ -19,7 +19,7 @@ class Maze(commands.Cog):
 	def __init__(self, bot):
 		self.rng = Random()
 		self.bot = bot
-		self.enabled = False
+		self.enabled = True
 		self.mid = [373946864531144726]
 
 	@commands.Cog.listener()
