@@ -241,6 +241,7 @@ class CactusHeight(commands.Cog):
             await ctx.channel.send("Put in box " + str(row)+" on the spreadsheet!")
         gc = gspread.service_account(filename='googlekeykaktoos.json')
         sh = gc.open_by_key('1PSz9y2l9Oo4-uoqrf7wB4Gtd_Z8CRAJ34SCrU9aj59E')
+        worksheet = sh.sheet1
         val = worksheet.cell(row, 2).value
         if val is not None and val is not '':
             worksheet.update(row, 2, stacccyboi)
@@ -252,6 +253,7 @@ class CactusHeight(commands.Cog):
     async def markdone(self, ctx, markthatshit):
         gc = gspread.service_account(filename='googlekeykaktoos.json')
         sh = gc.open_by_key('1PSz9y2l9Oo4-uoqrf7wB4Gtd_Z8CRAJ34SCrU9aj59E')
+        worksheet = sh.sheet1
         markthatshit = int(int(markthatshit)// 100000000000 + 2)
         fucc = "A{0}:B1".format(markthatshit)
         worksheet.format(str(fucc), {  
