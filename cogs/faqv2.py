@@ -42,7 +42,7 @@ class Faq(commands.Cog):
             command = FaqMessage(item["names"][0], item["content"])
             for listitem in item["regexs"]:
                 self.regexs.append(RegExMessagePair(listitem, item["content"], item["channels"]))
-            print(command.name, command.content)
+            #print(command.name, command.content)
             self.faq.command(item["names"][0], aliases=item["names"][1:])(command.__call__)
 
 

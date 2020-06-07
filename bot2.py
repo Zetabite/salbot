@@ -63,7 +63,8 @@ async def on_ready():
 async def reload(ctx):
     """ Reload all extensions """
     for exten in extensions:
-        try_load_extension(exten)
+        client.reload_extension(exten)
+        logger.info(f"Reloaded extension: {exten}")
     await ctx.send("Reload Succesful")
 
 @client.event
