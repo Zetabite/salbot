@@ -34,14 +34,14 @@ class Tos(commands.Cog):
             self.json_data = json.load(f)
         for item in self.json_data:
             command = TosCommand(item["names"][0], item["content"], item["info"])
-            print(command.name, command.content)
+            #print(command.name, command.content)
             self.dgl.command(item["names"][0], aliases=item["names"][1:])(command.__call__)
 
         with open("data/tos.json") as f:
             self.json_data = json.load(f)
         for item in self.json_data:
             command = TosCommand(item["names"][0], item["content"], item["info"])
-            print(command.name, command.content)
+            #print(command.name, command.content)
             self.tos.command(item["names"][0], aliases=item["names"][1:])(command.__call__)
 
     @commands.group(name="dgl", aliases=["guidelines"])
