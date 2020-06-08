@@ -10,7 +10,7 @@
         "channels":"packchannels",
         "content":">>> Hey, it looks like you mentioned what the seed is! If you actually found the seed, please message a mod. If you're saying this as a joke, please dont :}"
     },{
-        "names":["supercompute", "supercomp", "sc"],
+        "names":["supercompute", "supercomputer", "supercomp", "sc"],
         "regexs":["super.?comput."],
         "channels":"packchannels",
         "content":">>> Hey, it looks like you mentioned a supercomputer! Thankfully `@cactus uwu#0523` is dedicating several supercomputers towards this!"
