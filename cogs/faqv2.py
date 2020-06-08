@@ -58,8 +58,6 @@ class Faq(commands.Cog):
 
     @commands.Cog.listener()
     async def on_message(self, ctx):
-        if ctx.author:
-            return##Temp stop it responding to faq things
         if ctx.author == self.bot.user:
             return
         content = ctx.content.lower()
