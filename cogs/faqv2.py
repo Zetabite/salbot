@@ -35,6 +35,7 @@ class FaqMessage:
 class Faq(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
+        self.PE = True
         self.regexs = []
         with open("data/faq.json") as f:
             self.json_data = json.load(f)
@@ -56,9 +57,18 @@ class Faq(commands.Cog):
             msg += '\n```'
             await ctx.channel.send(msg, delete_after=30)
 
+    @faq.command(name="togglepack")
+    @commands.has_any_role("Administrator", "Moderator")
+    async def togglepack(self, ctx):
+        self.PE = False if self.PE else True
+        resp = "enabled" if self.PE else "disabled"
+        await ctx.channel.send(f"Pack.png bot responses have been {resp}")
+
     @commands.Cog.listener()
     async def on_message(self, ctx):
         if ctx.author == self.bot.user:
+            return
+        if ctx.channel.id in [666575359411748875, 666758275504537604, 710226813808279615] and not self.PE:
             return
         content = ctx.content.lower()
         for item in self.regexs:
