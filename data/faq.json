@@ -6,7 +6,7 @@
         "content":">>> Hey, it looks like you mentioned Dream! Unfortunately we cannot use that method because we don't have enough information."
     },{
         "names":["seed"],
-        "regexs":["seed.is.?{?!n}", "(have|know).?the.?seed"],
+        "regexs":["the.seed.is.?(?!n)", "(i.have|i.know).?the.?seed"],
         "channels":"packchannels",
         "content":">>> Hey, it looks like you mentioned what the seed is! If you actually found the seed, please message a mod. If you're saying this as a joke, please dont :}"
     },{
