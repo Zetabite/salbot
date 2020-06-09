@@ -61,10 +61,14 @@ class Faq(commands.Cog):
         if ctx.author == self.bot.user:
             return
         content = ctx.content.lower()
+        if len(content.split(" ")) < 2:
+            return
+        if len(ctx.author.roles) >= 1:
+            return
         for item in self.regexs:
             try:
                 #print(re.search(item.reg, content))
-                if re.search(item.reg, content) and (ctx.channel.id in item.channels) and len(ctx.author.roles) <= 1:
+                if re.search(item.reg, content) and (ctx.channel.id in item.channels):
                     await ctx.channel.send(item.content, delete_after=20)
                     if item.ch == "packchannels":
                         await ctx.add_reaction("\U00002705")
