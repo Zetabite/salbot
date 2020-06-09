@@ -111,7 +111,7 @@
         "content":"Here's a video by Matthew Bolan explaining LCGs in relation to Minecraft seedfinding: https://www.youtube.com/watch?v=XVrR1WImOh8"
     },{
         "names":["ai"],
-        "regexs":["ai", "AI"],
+        "regexs":["\Wai\W", "\WAI\W"],
         "channels":"packchannels",
         "content":"<@459235187469975572> someone said AI here!"
     }
