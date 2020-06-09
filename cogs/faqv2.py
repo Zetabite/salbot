@@ -68,7 +68,7 @@ class Faq(commands.Cog):
     async def on_message(self, ctx):
         if ctx.author == self.bot.user:
             return
-        if ctx.channel in g_channels["packchannels"] and not self.PE:
+        if ctx.channel.id in [666575359411748875, 666758275504537604, 710226813808279615] and not self.PE:
             return
         content = ctx.content.lower()
         for item in self.regexs:
