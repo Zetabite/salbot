@@ -36,7 +36,7 @@ extensions = [
     "cogs.automaticus_yeetus",
     "cogs.maze",
     "cogs.cactusheight",
-    "cogs.seedchecker"
+    "cogs.seedchecker",
     "salbot-secrets.autorankup"
     #"cogs.backup"
 ]
