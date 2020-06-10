@@ -9,6 +9,9 @@ class ValidSeed(commands.Cog):
     @commands.command(name="ValidSeed", aliases=["vs"])
     @commands.has_any_role("Administrator", "Moderator", "Private Chat Access")
     async def cactusheight(self, ctx, seed):
+        if 1 == 1:
+            await ctx.channel.send("<@459235187469975572> fix me")
+            return
         args = ['validseedchecker.jar', str(seed)]
         p = Popen(['java', '-jar']+list(args), stdout=PIPE, stderr=PIPE)
         for line in p.stdout:
