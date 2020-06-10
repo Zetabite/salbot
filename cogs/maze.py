@@ -1,10 +1,10 @@
 from discord.ext import commands
 import discord
 import random
-
+import time
 
 class Random:
-    def __init__(self, seed=6768668376353):
+    def __init__(self, seed=round(time.time())):
         self.seed = seed
         self.PSeed = seed
 
@@ -19,7 +19,7 @@ class Maze(commands.Cog):
 	def __init__(self, bot):
 		self.rng = Random()
 		self.bot = bot
-		self.enabled = False
+		self.enabled = True
 		self.mid = [373946864531144726]
 
 	@commands.Cog.listener()
