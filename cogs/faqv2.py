@@ -71,10 +71,14 @@ class Faq(commands.Cog):
         if ctx.channel.id in [666575359411748875, 666758275504537604, 710226813808279615] and not self.PE:
             return
         content = ctx.content.lower()
+        if len(content.split(" ")) < 2:
+            return
+        if len(ctx.author.roles) >= 1:
+            return
         for item in self.regexs:
             try:
                 #print(re.search(item.reg, content))
-                if re.search(item.reg, content) and (ctx.channel.id in item.channels) and len(ctx.author.roles) <= 1:
+                if re.search(item.reg, content) and (ctx.channel.id in item.channels):
                     await ctx.channel.send(item.content, delete_after=20)
                     if item.ch == "packchannels":
                         await ctx.add_reaction("\U00002705")
