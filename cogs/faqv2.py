@@ -46,6 +46,10 @@ class Faq(commands.Cog):
             #print(command.name, command.content)
             self.faq.command(item["names"][0], aliases=item["names"][1:])(command.__call__)
 
+    @commands.Cog.listener()
+    async def on_message(self, ctx):
+        if ctx.content.lower() == "read the faq" and ctx.channel.id in [666575359411748875, 666758275504537604]:
+            await ctx.channel.send("Please read the faq at https://packpng.com/faq")
 
     @commands.group(name="faq")
     @commands.has_any_role("Member", "Private Chat Access", "OG Role That Has No Purpose", "Moderator", "Administrator")
