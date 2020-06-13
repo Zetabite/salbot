@@ -13,7 +13,7 @@
         "names":["supercompute", "supercomputer", "supercomp", "sc"],
         "regexs":["super.?comput."],
         "channels":"packchannels",
-        "content":">>> Hey, it looks like you mentioned a supercomputer! Thankfully `@cactus uwu#0523` is dedicating several supercomputers towards this!"
+        "content":">>> Hey, it looks like you mentioned a supercomputer! Thankfully `@cactus uwu#0523` has dedicated several supercomputers towards this and `@chipwolf#0001` is providing us with AWS isntances."
     },{
         "names":["quantumcompute", "qcomp", "qc"],
         "regexs":["quantum.?comput."],
@@ -58,7 +58,7 @@
         "names":["searchall"],
         "regexs":["search.*(every|all)?.*seed"],
         "channels":"packchannels",
-        "content":">>> Searching every seed would take longer than your lifespan, even with very powerful hardware!"
+        "content":">>> Searching every seed would take years, potentially upwards of a decade, even with several supercomputers!"
     },{
         "names":["raiding"],
         "regexs":["raid", "destroy.{,15}serve", "ruin.{,15}serve"],
@@ -106,7 +106,7 @@
         "content":"Here's a video by Matthew Bolan explaining LCGs in relation to Minecraft seedfinding: https://www.youtube.com/watch?v=XVrR1WImOh8"
     },{
         "names":["tallcactus"],
-        "regexs":[],
+        "regexs":["tallest cactus"],
         "channels":"channels",
         "content":"The current tallest cactus"
     }
