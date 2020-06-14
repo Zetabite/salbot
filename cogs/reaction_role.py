@@ -6,15 +6,23 @@ import logging
 
 logger = logging.getLogger('salc1bot')
 data_store = Path("./data/reactionlistener.json")
+blacklist_store = Path("./salbot-secrets/packpng_blacklist.json")
 
 class ReactionRole(commands.Cog):
     def __init__(self, bot: commands.Bot):
         self.bot = bot
         with data_store.open() as f:
             self.data = json.load(f)
+        with blacklist_store.open() as f:
+            self.blacklist = json.load(f)
         self.channel = self.bot.get_channel(self.data["channel_id"])
         self.guild = self.channel.guild
         self.role = self.guild.get_role(self.data["role_id"])
+
+    def add_blacklist(self, id):
+        self.blacklist.append(id)
+        with blacklist_store.open("w") as f:
+            json.dump(self.blacklist, f)
 
     def is_relevant_reaction(self, emoji_object):
         if isinstance(emoji_object, discord.PartialEmoji):
@@ -33,6 +41,8 @@ class ReactionRole(commands.Cog):
     async def on_raw_reaction_add(self, payload):
         if payload.message_id != self.data["message_id"]:
             return
+        if payload.user_id in self.blacklist:
+            return
         if self.is_relevant_reaction(payload.emoji):
             await self.add_role(self.guild.get_member(payload.user_id))
     
@@ -43,7 +53,14 @@ class ReactionRole(commands.Cog):
         for reaction in message.reactions:
             if self.is_relevant_reaction(reaction):
                 async for member in reaction.users():
-                    await self.add_role(member)
+                    if not member.id in self.blacklist:
+                        await self.add_role(member)
+    
+    @commands.command()
+    @commands.has_any_role("Moderator", "Administrator")
+    async def packmute(self, ctx, member: discord.Member):
+        await member.remove_roles(self.role)
+        self.add_blacklist(member.id)
         
 def setup(bot):
     bot.add_cog(ReactionRole(bot))
