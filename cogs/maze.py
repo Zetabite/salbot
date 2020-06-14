@@ -3,21 +3,10 @@ import discord
 import random
 import time
 
-class Random:
-    def __init__(self, seed=round(time.time())):
-        self.seed = seed
-        self.PSeed = seed
-
-    def next(self):
-        self.seed = (self.PSeed * self.seed + 11) % 2**48
-        return(self.seed)
-
-    def randint(self, max):
-        return self.next() % 100
 
 class Maze(commands.Cog):
 	def __init__(self, bot):
-		self.rng = Random()
+		self.rng = random
 		self.bot = bot
 		self.enabled = True
 		self.mid = [373946864531144726]
@@ -25,9 +14,9 @@ class Maze(commands.Cog):
 	@commands.Cog.listener()
 	async def on_message(self, ctx):
 		if ctx.author.id in self.mid and self.enabled:
-			if self.rng.randint(100) == 43:
+			if self.rng.randint(0,100) == 43:
 				await ctx.channel.send(f"Fuck you {ctx.author.mention}")
-			if self.rng.randint(100) == 69:
+			if self.rng.randint(0,100) == 69:
 				await ctx.channel.send(f"Do you like Alex Dillinger {ctx.author.mention}")
 
 	@commands.has_any_role("Moderator", "Administrator", "Private Chat Access")

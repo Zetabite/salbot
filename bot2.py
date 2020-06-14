@@ -37,6 +37,7 @@ extensions = [
     "cogs.maze",
     "cogs.cactusheight",
     "cogs.shunt",
+    "cogs.reaction_role",
     "salbot-secrets.autorankup"
     #"cogs.backup"
 ]
@@ -64,8 +65,12 @@ async def on_ready():
 async def reload(ctx):
     """ Reload all extensions """
     for exten in extensions:
-        client.reload_extension(exten)
-        logger.info(f"Reloaded extension: {exten}")
+        try:
+            client.reload_extension(exten)
+        except Exception as e:
+            logger.exception(f"Error reloading Cog: {exten}", exc_info=True)
+        else:
+            logger.info(f"Reloaded extension: {exten}")
     await ctx.send("Reload Succesful")
 
 @client.event
@@ -80,3 +85,4 @@ if __name__ == "__main__": # only run bot if this file wasn't imported
     except discord.errors.LoginFailure as error:
         print("wrong token")
         logger.info(f"Error logging in! Error: {error}" )
+        
