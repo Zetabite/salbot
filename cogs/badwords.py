@@ -19,22 +19,22 @@ def is_apng(a: bytes):
     return False
 
 async def message_contains_apng(message: discord.Message):
-        for embed in message.embeds:
-            if embed.type == "image":
-                async with aiohttp.ClientSession() as session:
-                    async with session.get(embed.url) as r:
-                        if r.status == 200:
-                            raw = await r.read()
-                            if is_apng(raw):
-                                return True
-        
-        for a in message.attachments:
-            f = io.BytesIO()
-            await a.save(f)
-            if is_apng(f.read()):
-                return True
-        
-        return False
+    for embed in message.embeds:
+        if embed.type == "image":
+            async with aiohttp.ClientSession() as session:
+                async with session.get(embed.url) as r:
+                    if r.status == 200:
+                        raw = await r.read()
+                        if is_apng(raw):
+                            return True
+    
+    for a in message.attachments:
+        f = io.BytesIO()
+        await a.save(f)
+        if is_apng(f.read()):
+            return True
+    
+    return False
 
 class Badwords(commands.Cog):
     def __init__(self, bot, badwords):
