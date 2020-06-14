@@ -36,7 +36,6 @@ extensions = [
     "cogs.automaticus_yeetus",
     "cogs.maze",
     "cogs.cactusheight",
-    "cogs.seedchecker",
     "cogs.shunt",
     "cogs.reaction_role",
     "salbot-secrets.autorankup"
