@@ -10,11 +10,11 @@ import aiohttp
 logger = logging.getLogger('salc1bot')
 automation_logger = logging.getLogger('salc1bot.automated')
 
-async def is_apng(a: bytes):
+def is_apng(a: bytes):
     acTL = a.find(b"\x61\x63\x54\x4C")
     if acTL > 0:
-        IDAT = a.find(b"\x49\x44\x41\x54")
-        if acTL < IDAT:
+        iDAT = a.find(b"\x49\x44\x41\x54")
+        if acTL < iDAT:
             return True
     return False
 
@@ -25,13 +25,13 @@ async def message_contains_apng(message: discord.Message):
                     async with session.get(embed.url) as r:
                         if r.status == 200:
                             raw = await r.read()
-                            if await is_apng(raw):
+                            if is_apng(raw):
                                 return True
         
         for a in message.attachments:
             f = io.BytesIO()
             await a.save(f)
-            if await is_apng(f.read()):
+            if is_apng(f.read()):
                 return True
         
         return False
