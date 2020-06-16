@@ -61,7 +61,7 @@ class ReactionRole(commands.Cog):
     async def packmute(self, ctx, member: discord.Member):
         await member.remove_roles(self.role)
         self.add_blacklist(member.id)
-        await self.channel.send(f"Packpmuted {member}")
+        await ctx.channel.send(f"Packmuted {member}")
         
 def setup(bot):
     bot.add_cog(ReactionRole(bot))
