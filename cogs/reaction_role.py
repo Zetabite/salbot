@@ -31,11 +31,11 @@ class ReactionRole(commands.Cog):
             id_ = emoji_object.emoji.id
         return id_ == self.data["emoji_id"]
 
-    async def add_role(self, user):
+    async def add_role(self, member):
         try:
-            await user.add_roles(self.role)
+            await member.add_roles(self.role)
         except Exception as e:
-            logger.exception(f"Error adding role to: {user}", exc_info=True)
+            logger.exception(f"Error adding role to: {member}", exc_info=True)
     
     @commands.Cog.listener()
     async def on_raw_reaction_add(self, payload):
@@ -44,8 +44,19 @@ class ReactionRole(commands.Cog):
         if payload.user_id in self.blacklist:
             return
         if self.is_relevant_reaction(payload.emoji):
-            await self.add_role(self.guild.get_member(payload.user_id))
-    
+            logmessage = f"Not Member\npayload.member: {payload.member} {type(payload.member)}"
+            getmember = self.guild.get_member(payload.user_id)
+            logmessage += f"\nguild.get_member: {getmember} {type(getmember)}"
+            if isinstance(getmember, discord.member.Member):
+                await self.add_role(getmember)
+            else:
+                logger.error(logmessage)
+            if isinstance(payload.member, discord.member.Member):
+                await self.add_role(payload.member)
+            else:
+                logger.error(logmessage)
+            print(logmessage)
+
     @commands.command()
     @commands.has_any_role("Moderator", "Administrator")
     async def check_history(self, ctx):
