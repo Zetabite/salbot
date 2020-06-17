@@ -6,7 +6,7 @@ class ValidSeed(commands.Cog):
 
     @commands.command(name="validate", aliases=["v"])
     @commands.has_any_role("Administrator", "Moderator", "Private Chat Access")
-    async def cactusheight(self, ctx, wowthiswasnotfun):
+    async def validseed(self, ctx, wowthiswasnotfun):
         a = int(wowthiswasnotfun)
         if(a>0):
             inta = a % -2147483648
