@@ -39,6 +39,7 @@ extensions = [
     "cogs.shunt",
     "cogs.reaction_role",
     "cogs.validseed",
+    "cogs.sisterseed",
     "salbot-secrets.autorankup"
     #"cogs.backup"
 ]
