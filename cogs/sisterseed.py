@@ -23,4 +23,4 @@ class SisterSeed(commands.Cog):
             x = x % -9223372036854775808
             x += x - a * x * x
             x = x % -9223372036854775808
-            return x & -1
+            return x & -1 # From now on when you make PRs use conventional commits
