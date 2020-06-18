@@ -38,6 +38,7 @@ extensions = [
     "cogs.cactusheight",
     "cogs.shunt",
     "cogs.reaction_role",
+    "cogs.validseed",
     "salbot-secrets.autorankup"
     #"cogs.backup"
 ]
