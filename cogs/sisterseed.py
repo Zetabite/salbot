@@ -23,5 +23,3 @@ class SisterSeed(commands.Cog):
             await ctx.channel.send(((-1442695040888963407 * modInverse(6364136223846793005, 64)) - seed1)%-9223372036854775808)
         else:
             await ctx.channel.send(((-1442695040888963407 * modInverse(6364136223846793005, 64)) - seed1)%9223372036854775808)
-
-    
