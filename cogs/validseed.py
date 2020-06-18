@@ -31,9 +31,11 @@ class ValidSeed(commands.Cog):
         if(nextLong != worldSeed):
             if(nextLong2 == worldSeed):
                 ctx.channel.send("Valid Seed")
-        if(nextLong==worldSeed):
+            else:
+                ctx.channel.send("Invalid Seed")
+        elif(nextLong==worldSeed):
             ctx.channel.send("Valid Seed")
-
+       
 
 def setup(bot):
     bot.add_cog(ValidSeed(bot))
