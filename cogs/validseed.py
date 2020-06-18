@@ -30,11 +30,11 @@ class ValidSeed(commands.Cog):
                 nextLong = (((((seed >> 16)+(2<<15)) << 32)) + ((((seed * 25214903917 + 11) & ((1 << 48) - 1)) >> 16))+(2 <<15))
         if(nextLong != worldSeed):
             if(nextLong2 == worldSeed):
-                ctx.channel.send("Valid Seed")
+                await ctx.channel.send("Valid Seed")
             else:
-                ctx.channel.send("Invalid Seed")
+                await ctx.channel.send("Invalid Seed")
         elif(nextLong==worldSeed):
-            ctx.channel.send("Valid Seed")
+            await ctx.channel.send("Valid Seed")
        
 
 def setup(bot):
