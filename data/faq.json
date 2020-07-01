@@ -23,7 +23,7 @@
         "names":["ihelp"],
         "regexs":["(can|may)?.?i.?help", "do.?to.?help"],
         "channels":"packchannels",
-        "content":">>> Hey, it looks like want to help! If you have reverse-engineering or coding experience head to <#666758275504537604>, however before that, make sure to have thoroughly read <https://packpng.com/method>! For more info on ***how*** to help, visit <https://pastebin.com/UV5feUUW>!"
+        "content":">>> If you want to help there probably isn't that much you can do for pack.png unless you understand Maths/Minecraft/CUDA C++ quite well, feel free to donate processing power for other projects at https://minecraftathome.com/ and thanks for your willingness to help out!"
     },{
         "names":["notchmessage", "notchmsg", "notch", "built"],
         "regexs":["man.made", "was built"],
@@ -108,6 +108,6 @@
         "names":["tallcactus"],
         "regexs":["tallest cactus"],
         "channels":"channels",
-        "content":"The current tallest cactus"
+        "content":"The current tallest cactus is 21 blocks tall. Minecraft 1.14.4 Seed: 43931985876593125 Co-ords: -9711824 100 7726416"
     }
 ]
