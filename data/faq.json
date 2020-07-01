@@ -68,7 +68,7 @@
         "names":["client"],
         "regexs":["(client|hack).{,15}sal.{0,2}"],
         "channels":"channels",
-        "content":">>> SalC1 uses Future Utility Client"
+        "content":">>> SalC1 uses Future Utility Client, client commands, and forgehax for 2b2t"
     },{
         "names":["faq"],
         "regexs":[],
